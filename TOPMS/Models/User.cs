@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,32 +9,27 @@ using System.Threading.Tasks;
 namespace TOPMS.Models
 {
         [Table("User")]
-        public class User
+        public class User : IdentityUser
         {
-            [Key, Required]
-            public int Id { get; set; }
 
-            [Required, MaxLength(128)]
-            public string Email { get; set; }
-
-            [Required, MaxLength(128)]
-            public string UserName { get; set; }
-
-            [Required, MaxLength(128)]
-            public string PhoneNumber { get; set; }
-
-            [Required, MaxLength(1024)]
-            public string PasswordHash { get; set; }
-            
-            [MaxLength(32)]
-            public string FirstName { get; set; }
-
-            [MaxLength(1)]
-            public string MiddleInitial { get; set; }
-
-            [MaxLength(32)]
-            public string LastName { get; set; }
+            public User() : base()
+            {
+                
+            }
 
             public virtual ICollection<UserRole> UserRoles { get; set; }
-        }
+
+            [ForeignKey("Company")]
+            public string CompanyId { get; set; }
+
+            public Company Company { get; set; }
+
+            public ICollection<Offer> Offers { get; set; }
+
+            public ICollection<Order> Orders { get; set; }
+
+            public ICollection<Insurance> Insurances { get; set; }
+
+            public ICollection<TransportRFQ> TransportRFQs { get; set; }
+    }
 }

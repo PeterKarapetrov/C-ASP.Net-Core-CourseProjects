@@ -7,13 +7,12 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TOPMS.Models;
-using UserStore = TOPMS.Identity.UserStore;
-using RoleStore = TOPMS.Identity.RoleStore;
 
 namespace TOPMS
 {
@@ -38,19 +37,17 @@ namespace TOPMS
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddIdentity<User, UserRole>()
-                    .AddDefaultTokenProviders();
-            services.AddTransient<IUserStore<User>, UserStore>();
-            services.AddTransient<IRoleStore<UserRole>, RoleStore>();
-            services.ConfigureApplicationCookie(options =>
-            {
-                options.Cookie.HttpOnly = true;
-                options.LoginPath = "/Login";
-                options.LogoutPath = "/Logout";
-            });
 
             services.AddDbContext<TOPMSContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("TOPMSContext")));
+
+            services.AddIdentity<TOPMS.Models.User, TOPMS.Models.Role>()
+                .AddEntityFrameworkStores<TOPMSContext>()
+                .AddDefaultTokenProviders();
+
+            //services.AddSingleton<IEmailSender, EmailSender>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -70,6 +67,7 @@ namespace TOPMS
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {

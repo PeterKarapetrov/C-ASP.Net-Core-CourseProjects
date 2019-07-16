@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,14 +9,8 @@ using System.Threading.Tasks;
 namespace TOPMS.Models
 {
     [Table("Role")]
-    public class Role
+    public class Role : IdentityRole
     {
-        [Key, Required]
-        public int Id { get; set; }
-
-        [Required]
-        public string Name { get; set; }
-
         [Required]
         public string Descrition { get; set; }
 
