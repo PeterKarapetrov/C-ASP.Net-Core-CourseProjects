@@ -68,7 +68,16 @@ namespace TOPMS.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = new User { UserName = Input.Email, Email = Input.Email };
+
+                var adminsList = await _userManager.GetUsersInRoleAsync("Admin");
+              
                 var result = await _userManager.CreateAsync(user, Input.Password);
+
+                if (adminsList.Count == 0)
+                {
+                    _userManager.AddToRoleAsync(user, "Admin").Wait();
+                }
+
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");

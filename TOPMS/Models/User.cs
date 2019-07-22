@@ -14,10 +14,13 @@ namespace TOPMS.Models
 
             public User() : base()
             {
-                
+                this.Offers = new List<Offer>();
+                this.Orders = new List<Order>();
+                this.Insurances = new List<Insurance>();
+                this.TransportRFQs = new List<TransportRFQ>(); 
             }
 
-            public virtual ICollection<UserRole> UserRoles { get; set; }
+            //public virtual ICollection<UserRole> UserRoles { get; set; }
 
             [ForeignKey("Company")]
             public string CompanyId { get; set; }

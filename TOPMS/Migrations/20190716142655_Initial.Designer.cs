@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TOPMS.Models;
 
 namespace TOPMS.Migrations
 {
     [DbContext(typeof(TOPMSContext))]
-    partial class TOPMSContextModelSnapshot : ModelSnapshot
+    [Migration("20190716142655_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -134,125 +136,20 @@ namespace TOPMS.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("TOPMS.Models.AreaOfService", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AreaOfService");
-                });
-
             modelBuilder.Entity("TOPMS.Models.Company", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Address");
-
-                    b.Property<string>("City");
-
-                    b.Property<int>("CompanyType");
-
-                    b.Property<string>("ContactEmail");
-
-                    b.Property<string>("ContactPerson");
-
-                    b.Property<string>("ContactPhoneNumber");
-
-                    b.Property<string>("Country");
-
-                    b.Property<string>("Name");
-
-                    b.Property<string>("SpecialRequirements");
-
-                    b.Property<string>("WorkingTime");
-
-                    b.Property<string>("ZIPCode");
 
                     b.HasKey("Id");
 
                     b.ToTable("Companies");
                 });
 
-            modelBuilder.Entity("TOPMS.Models.CompanyAreaOfService", b =>
-                {
-                    b.Property<string>("CompanyId");
-
-                    b.Property<string>("AreaOfServiceId");
-
-                    b.HasKey("CompanyId", "AreaOfServiceId");
-
-                    b.HasIndex("AreaOfServiceId");
-
-                    b.ToTable("CompanyAreaOfServices");
-                });
-
-            modelBuilder.Entity("TOPMS.Models.CompanyService", b =>
-                {
-                    b.Property<string>("CompanyId");
-
-                    b.Property<string>("ServiceId");
-
-                    b.HasKey("CompanyId", "ServiceId");
-
-                    b.HasIndex("ServiceId");
-
-                    b.ToTable("CompanyServices");
-                });
-
-            modelBuilder.Entity("TOPMS.Models.CompanyTransport", b =>
-                {
-                    b.Property<string>("CompanyId");
-
-                    b.Property<string>("TransportId");
-
-                    b.HasKey("CompanyId", "TransportId");
-
-                    b.HasIndex("TransportId");
-
-                    b.ToTable("CompanyTransports");
-                });
-
-            modelBuilder.Entity("TOPMS.Models.ExchangeRate", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Comments");
-
-                    b.Property<int>("ConvertFrom");
-
-                    b.Property<decimal>("ConvertRate");
-
-                    b.Property<int>("ConvertToBGN");
-
-                    b.Property<string>("ValidForMonth");
-
-                    b.Property<DateTime>("ValidFrom");
-
-                    b.Property<DateTime>("ValidTill");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ExchangeRates");
-                });
-
             modelBuilder.Entity("TOPMS.Models.Insurance", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Comments");
-
-                    b.Property<int>("Currency");
-
-                    b.Property<decimal>("OrderAmount");
-
-                    b.Property<string>("SendToEmail");
 
                     b.Property<string>("UserId");
 
@@ -263,50 +160,14 @@ namespace TOPMS.Migrations
                     b.ToTable("Insurances");
                 });
 
-            modelBuilder.Entity("TOPMS.Models.Material", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("Hazardus");
-
-                    b.Property<string>("MaterialCode");
-
-                    b.Property<string>("Name");
-
-                    b.Property<int>("Packaging");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Materials");
-                });
-
             modelBuilder.Entity("TOPMS.Models.Offer", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Comments");
-
-                    b.Property<int>("Currency");
-
-                    b.Property<DateTime>("Date");
-
-                    b.Property<string>("DeliveryTime");
-
-                    b.Property<string>("LoadingTime");
-
-                    b.Property<decimal>("PriceOffered");
-
-                    b.Property<string>("TransportRFQId");
-
                     b.Property<string>("UserId");
 
-                    b.Property<DateTime>("ValidTill");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("TransportRFQId");
 
                     b.HasIndex("UserId");
 
@@ -318,18 +179,6 @@ namespace TOPMS.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Comments");
-
-                    b.Property<int>("Currency");
-
-                    b.Property<DateTime>("Date");
-
-                    b.Property<DateTime>("DeliverTill");
-
-                    b.Property<DateTime>("LoadingDate");
-
-                    b.Property<decimal>("OrderAmount");
-
                     b.Property<string>("UserId");
 
                     b.HasKey("Id");
@@ -339,100 +188,14 @@ namespace TOPMS.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("TOPMS.Models.Service", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Services");
-                });
-
-            modelBuilder.Entity("TOPMS.Models.Status", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Status");
-                });
-
-            modelBuilder.Entity("TOPMS.Models.Transport", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Transports");
-                });
-
             modelBuilder.Entity("TOPMS.Models.TransportRFQ", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("Date");
-
-                    b.Property<string>("FromId");
-
-                    b.Property<string>("InsuranceId");
-
-                    b.Property<string>("MaterialId");
-
-                    b.Property<int>("NumberOfPackages");
-
-                    b.Property<string>("OrderId");
-
-                    b.Property<string>("PackageDimention");
-
-                    b.Property<DateTime>("RequestDeliveryDate");
-
-                    b.Property<string>("ServiceId");
-
-                    b.Property<DateTime>("ShipmentReadyDate");
-
-                    b.Property<string>("SpecialRequirements");
-
-                    b.Property<string>("StatusId");
-
-                    b.Property<string>("ToId");
-
-                    b.Property<string>("TransportId");
-
                     b.Property<string>("UserId");
 
-                    b.Property<string>("Volume");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("FromId");
-
-                    b.HasIndex("InsuranceId")
-                        .IsUnique()
-                        .HasFilter("[InsuranceId] IS NOT NULL");
-
-                    b.HasIndex("MaterialId");
-
-                    b.HasIndex("OrderId")
-                        .IsUnique()
-                        .HasFilter("[OrderId] IS NOT NULL");
-
-                    b.HasIndex("ServiceId");
-
-                    b.HasIndex("StatusId");
-
-                    b.HasIndex("ToId");
-
-                    b.HasIndex("TransportId");
 
                     b.HasIndex("UserId");
 
@@ -551,45 +314,6 @@ namespace TOPMS.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("TOPMS.Models.CompanyAreaOfService", b =>
-                {
-                    b.HasOne("TOPMS.Models.AreaOfService", "AreaOfService")
-                        .WithMany("CompanyAreaOfServices")
-                        .HasForeignKey("AreaOfServiceId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("TOPMS.Models.Company", "Company")
-                        .WithMany("CompanyAreaOfServices")
-                        .HasForeignKey("CompanyId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TOPMS.Models.CompanyService", b =>
-                {
-                    b.HasOne("TOPMS.Models.Company", "Company")
-                        .WithMany("CompanyServices")
-                        .HasForeignKey("CompanyId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("TOPMS.Models.Service", "Service")
-                        .WithMany("CompanyServices")
-                        .HasForeignKey("ServiceId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TOPMS.Models.CompanyTransport", b =>
-                {
-                    b.HasOne("TOPMS.Models.Company", "Company")
-                        .WithMany("CompanyTransports")
-                        .HasForeignKey("CompanyId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("TOPMS.Models.Transport", "Transport")
-                        .WithMany("CompanyTransports")
-                        .HasForeignKey("TransportId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
             modelBuilder.Entity("TOPMS.Models.Insurance", b =>
                 {
                     b.HasOne("TOPMS.Models.User", "User")
@@ -599,10 +323,6 @@ namespace TOPMS.Migrations
 
             modelBuilder.Entity("TOPMS.Models.Offer", b =>
                 {
-                    b.HasOne("TOPMS.Models.TransportRFQ", "TransportRFQ")
-                        .WithMany("Offers")
-                        .HasForeignKey("TransportRFQId");
-
                     b.HasOne("TOPMS.Models.User", "User")
                         .WithMany("Offers")
                         .HasForeignKey("UserId");
@@ -617,38 +337,6 @@ namespace TOPMS.Migrations
 
             modelBuilder.Entity("TOPMS.Models.TransportRFQ", b =>
                 {
-                    b.HasOne("TOPMS.Models.Company", "From")
-                        .WithMany("Loadings")
-                        .HasForeignKey("FromId");
-
-                    b.HasOne("TOPMS.Models.Insurance", "Insurance")
-                        .WithOne("TransportRFQ")
-                        .HasForeignKey("TOPMS.Models.TransportRFQ", "InsuranceId");
-
-                    b.HasOne("TOPMS.Models.Material", "Material")
-                        .WithMany("TransportRFQs")
-                        .HasForeignKey("MaterialId");
-
-                    b.HasOne("TOPMS.Models.Order", "Order")
-                        .WithOne("TransportRFQ")
-                        .HasForeignKey("TOPMS.Models.TransportRFQ", "OrderId");
-
-                    b.HasOne("TOPMS.Models.Service", "Service")
-                        .WithMany("TransportRFQs")
-                        .HasForeignKey("ServiceId");
-
-                    b.HasOne("TOPMS.Models.Status", "Status")
-                        .WithMany("TransportRFQs")
-                        .HasForeignKey("StatusId");
-
-                    b.HasOne("TOPMS.Models.Company", "To")
-                        .WithMany("Deliveries")
-                        .HasForeignKey("ToId");
-
-                    b.HasOne("TOPMS.Models.Transport", "Transport")
-                        .WithMany("TransportRFQs")
-                        .HasForeignKey("TransportId");
-
                     b.HasOne("TOPMS.Models.User", "User")
                         .WithMany("TransportRFQs")
                         .HasForeignKey("UserId");

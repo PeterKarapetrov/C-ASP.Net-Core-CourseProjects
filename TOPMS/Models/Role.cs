@@ -14,6 +14,6 @@ namespace TOPMS.Models
         [Required]
         public string Descrition { get; set; }
 
-        public virtual ICollection<UserRole> UserRoles { get; set; }
+        //public virtual ICollection<UserRole> UserRoles { get; set; }
     }
 }

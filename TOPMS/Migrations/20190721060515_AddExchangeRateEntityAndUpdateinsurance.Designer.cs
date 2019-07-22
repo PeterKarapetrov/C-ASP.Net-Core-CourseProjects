@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TOPMS.Models;
 
 namespace TOPMS.Migrations
 {
     [DbContext(typeof(TOPMSContext))]
-    partial class TOPMSContextModelSnapshot : ModelSnapshot
+    [Migration("20190721060515_AddExchangeRateEntityAndUpdateinsurance")]
+    partial class AddExchangeRateEntityAndUpdateinsurance
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -155,8 +157,6 @@ namespace TOPMS.Migrations
 
                     b.Property<string>("City");
 
-                    b.Property<int>("CompanyType");
-
                     b.Property<string>("ContactEmail");
 
                     b.Property<string>("ContactPerson");
@@ -188,7 +188,7 @@ namespace TOPMS.Migrations
 
                     b.HasIndex("AreaOfServiceId");
 
-                    b.ToTable("CompanyAreaOfServices");
+                    b.ToTable("CompanyAreaOfService");
                 });
 
             modelBuilder.Entity("TOPMS.Models.CompanyService", b =>
@@ -215,30 +215,6 @@ namespace TOPMS.Migrations
                     b.HasIndex("TransportId");
 
                     b.ToTable("CompanyTransports");
-                });
-
-            modelBuilder.Entity("TOPMS.Models.ExchangeRate", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Comments");
-
-                    b.Property<int>("ConvertFrom");
-
-                    b.Property<decimal>("ConvertRate");
-
-                    b.Property<int>("ConvertToBGN");
-
-                    b.Property<string>("ValidForMonth");
-
-                    b.Property<DateTime>("ValidFrom");
-
-                    b.Property<DateTime>("ValidTill");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ExchangeRates");
                 });
 
             modelBuilder.Entity("TOPMS.Models.Insurance", b =>
