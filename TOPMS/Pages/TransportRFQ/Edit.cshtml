@@ -1,0 +1,101 @@
+﻿@page
+@model TOPMS.Pages.TransportRFQ.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>TransportRFQ</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TransportRFQ.Id" />
+            <div class="form-group">
+                <label asp-for="TransportRFQ.UserId" class="control-label"></label>
+                <select asp-for="TransportRFQ.UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+                <span asp-validation-for="TransportRFQ.UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TransportRFQ.Date" class="control-label"></label>
+                <input asp-for="TransportRFQ.Date" class="form-control" />
+                <span asp-validation-for="TransportRFQ.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TransportRFQ.MaterialId" class="control-label"></label>
+                <select asp-for="TransportRFQ.MaterialId" class="form-control" asp-items="ViewBag.MaterialId"></select>
+                <span asp-validation-for="TransportRFQ.MaterialId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TransportRFQ.NumberOfPackages" class="control-label"></label>
+                <input asp-for="TransportRFQ.NumberOfPackages" class="form-control" />
+                <span asp-validation-for="TransportRFQ.NumberOfPackages" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TransportRFQ.PackageDimention" class="control-label"></label>
+                <input asp-for="TransportRFQ.PackageDimention" class="form-control" />
+                <span asp-validation-for="TransportRFQ.PackageDimention" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TransportRFQ.Volume" class="control-label"></label>
+                <input asp-for="TransportRFQ.Volume" class="form-control" />
+                <span asp-validation-for="TransportRFQ.Volume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TransportRFQ.TransportId" class="control-label"></label>
+                <select asp-for="TransportRFQ.TransportId" class="form-control" asp-items="ViewBag.TransportId"></select>
+                <span asp-validation-for="TransportRFQ.TransportId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TransportRFQ.ServiceId" class="control-label"></label>
+                <select asp-for="TransportRFQ.ServiceId" class="form-control" asp-items="ViewBag.ServiceId"></select>
+                <span asp-validation-for="TransportRFQ.ServiceId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TransportRFQ.ShipmentReadyDate" class="control-label"></label>
+                <input asp-for="TransportRFQ.ShipmentReadyDate" class="form-control" />
+                <span asp-validation-for="TransportRFQ.ShipmentReadyDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TransportRFQ.RequestDeliveryDate" class="control-label"></label>
+                <input asp-for="TransportRFQ.RequestDeliveryDate" class="form-control" />
+                <span asp-validation-for="TransportRFQ.RequestDeliveryDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TransportRFQ.StatusId" class="control-label"></label>
+                <select asp-for="TransportRFQ.StatusId" class="form-control" asp-items="ViewBag.StatusId"></select>
+                <span asp-validation-for="TransportRFQ.StatusId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TransportRFQ.SpecialRequirements" class="control-label"></label>
+                <input asp-for="TransportRFQ.SpecialRequirements" class="form-control" />
+                <span asp-validation-for="TransportRFQ.SpecialRequirements" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TransportRFQ.OrderId" class="control-label"></label>
+                <select asp-for="TransportRFQ.OrderId" class="form-control" asp-items="ViewBag.OrderId"></select>
+                <span asp-validation-for="TransportRFQ.OrderId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TransportRFQ.InsuranceId" class="control-label"></label>
+                <select asp-for="TransportRFQ.InsuranceId" class="form-control" asp-items="ViewBag.InsuranceId"></select>
+                <span asp-validation-for="TransportRFQ.InsuranceId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

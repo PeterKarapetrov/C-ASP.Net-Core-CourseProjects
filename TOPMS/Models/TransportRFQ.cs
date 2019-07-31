@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TOPMS.Models
@@ -18,7 +19,8 @@ namespace TOPMS.Models
 
         public User User { get; set; }
 
-        public DateTime Date { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime Date { get; set; } = DateTime.UtcNow;
 
         public Company From { get; set; }
 
@@ -40,8 +42,11 @@ namespace TOPMS.Models
         public string ServiceId { get; set; }
 
         public Service Service { get; set; }
+
+        [DataType(DataType.Date)]
         public DateTime ShipmentReadyDate { get; set; }
 
+        [DataType(DataType.Date)]
         public DateTime RequestDeliveryDate { get; set; }
 
         public string StatusId { get; set; }

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.ModelConfiguration.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using TOPMS.Models;
+using TOPMS.Pages.Company;
 
 namespace TOPMS.Models
 {
@@ -17,6 +19,8 @@ namespace TOPMS.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            modelBuilder.Entity<ExchangeRate>().Property(e => e.ConvertRate).HasColumnType("decimal(18,5)");
 
             modelBuilder.Entity<CompanyTransport>().HasKey(ct => new { ct.CompanyId, ct.TransportId });
 

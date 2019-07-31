@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using TOPMS.Enums;
 
@@ -13,8 +14,10 @@ namespace TOPMS.Models
 
         public User User { get; set; }
 
-        public DateTime Date { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime Date { get; set; } = DateTime.UtcNow;
 
+        [DataType(DataType.Date)]
         public DateTime ValidTill { get; set; }
 
         public string TransportRFQId {get; set;}

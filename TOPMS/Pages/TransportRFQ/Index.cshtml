@@ -1,0 +1,115 @@
+﻿@page
+@model TOPMS.Pages.TransportRFQ.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TransportRFQ[0].User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransportRFQ[0].Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransportRFQ[0].Material)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransportRFQ[0].NumberOfPackages)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransportRFQ[0].PackageDimention)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransportRFQ[0].Volume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransportRFQ[0].Transport)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransportRFQ[0].Service)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransportRFQ[0].ShipmentReadyDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransportRFQ[0].RequestDeliveryDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransportRFQ[0].Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransportRFQ[0].SpecialRequirements)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransportRFQ[0].Order)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransportRFQ[0].Insurance)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.TransportRFQ) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Material.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfPackages)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PackageDimention)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Volume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Transport.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Service.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShipmentReadyDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestDeliveryDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpecialRequirements)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Order.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Insurance.Id)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

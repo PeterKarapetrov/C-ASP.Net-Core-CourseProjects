@@ -12,10 +12,13 @@
     <Compile Remove="Migrations\20190716135819_MoreEntities.Designer.cs" />
     <Compile Remove="Migrations\20190716140900_Initial.cs" />
     <Compile Remove="Migrations\20190716140900_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20190730112338_ExchangeRatePrecision.cs" />
+    <Compile Remove="Migrations\20190730112338_ExchangeRatePrecision.Designer.cs" />
   </ItemGroup>
 
 
   <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />

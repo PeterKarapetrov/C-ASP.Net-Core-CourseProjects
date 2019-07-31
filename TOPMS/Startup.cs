@@ -149,7 +149,7 @@ namespace TOPMS
 
                         foreach (var transport in transports)
                         {
-                            var transportExist = context.Status.FirstOrDefault(t => t.Name == transport.Name);
+                            var transportExist = context.Transports.FirstOrDefault(t => t.Name == transport.Name);
 
                             if (transportExist == null)
                             {

@@ -1,0 +1,104 @@
+﻿@page
+@model TOPMS.Pages.TransportRFQ.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>TransportRFQ</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransportRFQ.User)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransportRFQ.User.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransportRFQ.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransportRFQ.Date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransportRFQ.Material)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransportRFQ.Material.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransportRFQ.NumberOfPackages)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransportRFQ.NumberOfPackages)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransportRFQ.PackageDimention)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransportRFQ.PackageDimention)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransportRFQ.Volume)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransportRFQ.Volume)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransportRFQ.Transport)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransportRFQ.Transport.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransportRFQ.Service)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransportRFQ.Service.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransportRFQ.ShipmentReadyDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransportRFQ.ShipmentReadyDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransportRFQ.RequestDeliveryDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransportRFQ.RequestDeliveryDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransportRFQ.Status)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransportRFQ.Status.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransportRFQ.SpecialRequirements)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransportRFQ.SpecialRequirements)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransportRFQ.Order)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransportRFQ.Order.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransportRFQ.Insurance)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransportRFQ.Insurance.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.TransportRFQ.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

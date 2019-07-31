@@ -1,0 +1,56 @@
+﻿@page
+@model TOPMS.Pages.Insurance.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Insurance</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Insurance.UserId" class="control-label"></label>
+                <select asp-for="Insurance.UserId" class ="form-control" asp-items="ViewBag.UserId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Insurance.SendToEmail" class="control-label"></label>
+                <input asp-for="Insurance.SendToEmail" class="form-control" />
+                <span asp-validation-for="Insurance.SendToEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Insurance.OrderAmount" class="control-label"></label>
+                <input asp-for="Insurance.OrderAmount" class="form-control" />
+                <span asp-validation-for="Insurance.OrderAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Insurance.Currency" class="control-label"></label>
+                <select asp-for="Insurance.Currency" asp-items="Html.GetEnumSelectList<TOPMS.Enums.Currency>()" class="form-control">
+                    <option selected="selected" value="">Please select</option>
+                </select>
+                <span asp-validation-for="Insurance.Currency" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Insurance.Comments" class="control-label"></label>
+                <input asp-for="Insurance.Comments" class="form-control" />
+                <span asp-validation-for="Insurance.Comments" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
