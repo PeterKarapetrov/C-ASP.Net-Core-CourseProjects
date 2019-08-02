@@ -23,7 +23,7 @@ namespace TOPMS.Pages.Insurance
         public async Task OnGetAsync()
         {
             Insurance = await _context.Insurances
-                .Include(i => i.User).ToListAsync();
+                .Include(i => i.AppUser).ToListAsync();
         }
     }
 }

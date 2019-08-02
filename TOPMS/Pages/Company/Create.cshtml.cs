@@ -36,7 +36,9 @@ namespace TOPMS.Pages.Company
             _context.Companies.Add(Company);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            string id = Company.Id;
+
+            return Redirect($"./CompanyServices?id={id}");
         }
     }
 }

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TOPMS.Models;
 
 namespace TOPMS.Migrations
 {
     [DbContext(typeof(TOPMSContext))]
-    partial class TOPMSContextModelSnapshot : ModelSnapshot
+    [Migration("20190731182009_AddIsCheckedPropertyInServiceEntity")]
+    partial class AddIsCheckedPropertyInServiceEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -134,61 +136,6 @@ namespace TOPMS.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("TOPMS.Models.AppUser", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("AccessFailedCount");
-
-                    b.Property<string>("CompanyId");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken();
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(256);
-
-                    b.Property<bool>("EmailConfirmed");
-
-                    b.Property<bool>("LockoutEnabled");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasMaxLength(256);
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasMaxLength(256);
-
-                    b.Property<string>("PasswordHash");
-
-                    b.Property<string>("PhoneNumber");
-
-                    b.Property<bool>("PhoneNumberConfirmed");
-
-                    b.Property<string>("SecurityStamp");
-
-                    b.Property<bool>("TwoFactorEnabled");
-
-                    b.Property<string>("UserName")
-                        .HasMaxLength(256);
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CompanyId");
-
-                    b.HasIndex("NormalizedEmail")
-                        .HasName("EmailIndex");
-
-                    b.HasIndex("NormalizedUserName")
-                        .IsUnique()
-                        .HasName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.ToTable("AspNetUsers");
-                });
-
             modelBuilder.Entity("TOPMS.Models.AreaOfService", b =>
                 {
                     b.Property<string>("Id")
@@ -302,8 +249,6 @@ namespace TOPMS.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("AppUserId");
-
                     b.Property<string>("Comments");
 
                     b.Property<int>("Currency");
@@ -312,9 +257,11 @@ namespace TOPMS.Migrations
 
                     b.Property<string>("SendToEmail");
 
+                    b.Property<string>("UserId");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("AppUserId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Insurances");
                 });
@@ -342,8 +289,6 @@ namespace TOPMS.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("AppUserId");
-
                     b.Property<string>("Comments");
 
                     b.Property<int>("Currency");
@@ -358,13 +303,15 @@ namespace TOPMS.Migrations
 
                     b.Property<string>("TransportRFQId");
 
+                    b.Property<string>("UserId");
+
                     b.Property<DateTime>("ValidTill");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AppUserId");
-
                     b.HasIndex("TransportRFQId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Offers");
                 });
@@ -373,8 +320,6 @@ namespace TOPMS.Migrations
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<string>("AppUserId");
 
                     b.Property<string>("Comments");
 
@@ -388,9 +333,11 @@ namespace TOPMS.Migrations
 
                     b.Property<decimal>("OrderAmount");
 
+                    b.Property<string>("UserId");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("AppUserId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Orders");
                 });
@@ -436,8 +383,6 @@ namespace TOPMS.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("AppUserId");
-
                     b.Property<DateTime>("Date");
 
                     b.Property<string>("FromId");
@@ -466,11 +411,11 @@ namespace TOPMS.Migrations
 
                     b.Property<string>("TransportId");
 
+                    b.Property<string>("UserId");
+
                     b.Property<string>("Volume");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AppUserId");
 
                     b.HasIndex("FromId");
 
@@ -492,19 +437,76 @@ namespace TOPMS.Migrations
 
                     b.HasIndex("TransportId");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("TransportRFQs");
                 });
 
-            modelBuilder.Entity("TOPMS.Models.AppRole", b =>
+            modelBuilder.Entity("TOPMS.Models.User", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("AccessFailedCount");
+
+                    b.Property<string>("CompanyId");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken();
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256);
+
+                    b.Property<bool>("EmailConfirmed");
+
+                    b.Property<bool>("LockoutEnabled");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("PasswordHash");
+
+                    b.Property<string>("PhoneNumber");
+
+                    b.Property<bool>("PhoneNumberConfirmed");
+
+                    b.Property<string>("SecurityStamp");
+
+                    b.Property<bool>("TwoFactorEnabled");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CompanyId");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("TOPMS.Models.Role", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityRole");
 
                     b.Property<string>("Descrition")
                         .IsRequired();
 
-                    b.ToTable("AppRole");
+                    b.ToTable("Role");
 
-                    b.HasDiscriminator().HasValue("AppRole");
+                    b.HasDiscriminator().HasValue("Role");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -517,7 +519,7 @@ namespace TOPMS.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("TOPMS.Models.AppUser")
+                    b.HasOne("TOPMS.Models.User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -525,7 +527,7 @@ namespace TOPMS.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("TOPMS.Models.AppUser")
+                    b.HasOne("TOPMS.Models.User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -538,7 +540,7 @@ namespace TOPMS.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("TOPMS.Models.AppUser")
+                    b.HasOne("TOPMS.Models.User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -546,17 +548,10 @@ namespace TOPMS.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("TOPMS.Models.AppUser")
+                    b.HasOne("TOPMS.Models.User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TOPMS.Models.AppUser", b =>
-                {
-                    b.HasOne("TOPMS.Models.Company", "Company")
-                        .WithMany("AppUsers")
-                        .HasForeignKey("CompanyId");
                 });
 
             modelBuilder.Entity("TOPMS.Models.CompanyAreaOfService", b =>
@@ -600,35 +595,31 @@ namespace TOPMS.Migrations
 
             modelBuilder.Entity("TOPMS.Models.Insurance", b =>
                 {
-                    b.HasOne("TOPMS.Models.AppUser", "AppUser")
+                    b.HasOne("TOPMS.Models.User", "User")
                         .WithMany("Insurances")
-                        .HasForeignKey("AppUserId");
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("TOPMS.Models.Offer", b =>
                 {
-                    b.HasOne("TOPMS.Models.AppUser", "AppUser")
-                        .WithMany("Offers")
-                        .HasForeignKey("AppUserId");
-
                     b.HasOne("TOPMS.Models.TransportRFQ", "TransportRFQ")
                         .WithMany("Offers")
                         .HasForeignKey("TransportRFQId");
+
+                    b.HasOne("TOPMS.Models.User", "User")
+                        .WithMany("Offers")
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("TOPMS.Models.Order", b =>
                 {
-                    b.HasOne("TOPMS.Models.AppUser", "AppUser")
+                    b.HasOne("TOPMS.Models.User", "User")
                         .WithMany("Orders")
-                        .HasForeignKey("AppUserId");
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("TOPMS.Models.TransportRFQ", b =>
                 {
-                    b.HasOne("TOPMS.Models.AppUser", "AppUser")
-                        .WithMany("TransportRFQs")
-                        .HasForeignKey("AppUserId");
-
                     b.HasOne("TOPMS.Models.Company", "From")
                         .WithMany("Loadings")
                         .HasForeignKey("FromId");
@@ -660,6 +651,17 @@ namespace TOPMS.Migrations
                     b.HasOne("TOPMS.Models.Transport", "Transport")
                         .WithMany("TransportRFQs")
                         .HasForeignKey("TransportId");
+
+                    b.HasOne("TOPMS.Models.User", "User")
+                        .WithMany("TransportRFQs")
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("TOPMS.Models.User", b =>
+                {
+                    b.HasOne("TOPMS.Models.Company", "Company")
+                        .WithMany("Users")
+                        .HasForeignKey("CompanyId");
                 });
 #pragma warning restore 612, 618
         }

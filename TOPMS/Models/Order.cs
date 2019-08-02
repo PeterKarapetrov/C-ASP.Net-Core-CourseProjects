@@ -9,10 +9,10 @@ namespace TOPMS.Models
     {
         public string Id { get; set; }
 
-        [ForeignKey("User")]
-        public string UserId { get; set; }
+        [ForeignKey("AppUser")]
+        public string AppUserId { get; set; }
 
-        public User User { get; set; }
+        public AppUser AppUser { get; set; }
 
         [DataType(DataType.Date)]
         public DateTime Date { get; set; } = DateTime.UtcNow;

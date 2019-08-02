@@ -29,7 +29,7 @@ namespace TOPMS.Pages.TransportRFQ
                 .Include(t => t.Service)
                 .Include(t => t.Status)
                 .Include(t => t.Transport)
-                .Include(t => t.User).ToListAsync();
+                .Include(t => t.AppUser).ToListAsync();
         }
     }
 }

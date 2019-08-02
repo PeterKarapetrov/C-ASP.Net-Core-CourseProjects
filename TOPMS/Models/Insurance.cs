@@ -7,10 +7,10 @@ namespace TOPMS.Models
     {
         public string Id { get; set; }
 
-        [ForeignKey("User")]
-        public string UserId { get; set; }
+        [ForeignKey("AppUser")]
+        public string AppUserId { get; set; }
 
-        public User User { get; set; }
+        public AppUser AppUser { get; set; }
 
         public string SendToEmail { get; set; }
 

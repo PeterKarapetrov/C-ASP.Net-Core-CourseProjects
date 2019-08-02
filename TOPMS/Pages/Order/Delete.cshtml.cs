@@ -29,7 +29,7 @@ namespace TOPMS.Pages.Order
             }
 
             Order = await _context.Orders
-                .Include(o => o.User).FirstOrDefaultAsync(m => m.Id == id);
+                .Include(o => o.AppUser).FirstOrDefaultAsync(m => m.Id == id);
 
             if (Order == null)
             {

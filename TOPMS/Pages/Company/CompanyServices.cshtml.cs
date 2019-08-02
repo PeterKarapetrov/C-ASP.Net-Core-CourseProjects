@@ -8,19 +8,22 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TOPMS.Models;
 
-namespace TOPMS.Pages.Order
+namespace TOPMS.Pages.Company
 {
-    public class EditModel : PageModel
+    public class CompanyServicesModel : PageModel
     {
         private readonly TOPMS.Models.TOPMSContext _context;
 
-        public EditModel(TOPMS.Models.TOPMSContext context)
+        public CompanyServicesModel(TOPMS.Models.TOPMSContext context)
         {
             _context = context;
         }
 
         [BindProperty]
-        public TOPMS.Models.Order Order { get; set; }
+        public Models.Company Company { get; set; }
+
+        [BindProperty]
+        public IList<Models.Service> Services { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -29,14 +32,15 @@ namespace TOPMS.Pages.Order
                 return NotFound();
             }
 
-            Order = await _context.Orders
-                .Include(o => o.AppUser).FirstOrDefaultAsync(m => m.Id == id);
+            Company = await _context.Companies.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (Order == null)
+            if (Company == null)
             {
                 return NotFound();
             }
-           ViewData["UserId"] = new SelectList(_context.AppUsers, "Id", "Id");
+
+            Services = _context.Services.ToList();
+
             return Page();
         }
 
@@ -47,7 +51,22 @@ namespace TOPMS.Pages.Order
                 return Page();
             }
 
-            _context.Attach(Order).State = EntityState.Modified;
+            //var company = _context.Companies.FirstOrDefault();
+
+            var checkBoxResultList = Request.Form["item.IsChecked"].ToList();
+            var serviceIdList = Request.Form["item.Id"].ToList();
+
+            for (int i = 0; i < serviceIdList.Count; i++)
+            {
+                if (checkBoxResultList[i] == "true")
+                {
+                    var companyService = new CompanyService(Company, serviceIdList[i]);
+                    _context.CompanyServices.Add(companyService);
+                }
+
+            }
+
+            _context.Attach(Company).State = EntityState.Modified;
 
             try
             {
@@ -55,7 +74,7 @@ namespace TOPMS.Pages.Order
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!OrderExists(Order.Id))
+                if (!CompanyExists(Company.Id))
                 {
                     return NotFound();
                 }
@@ -68,9 +87,9 @@ namespace TOPMS.Pages.Order
             return RedirectToPage("./Index");
         }
 
-        private bool OrderExists(string id)
+        private bool CompanyExists(string id)
         {
-            return _context.Orders.Any(e => e.Id == id);
+            return _context.Companies.Any(e => e.Id == id);
         }
     }
 }

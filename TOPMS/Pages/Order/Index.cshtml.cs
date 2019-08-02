@@ -23,7 +23,7 @@ namespace TOPMS.Pages.Order
         public async Task OnGetAsync()
         {
             Order = await _context.Orders
-                .Include(o => o.User).ToListAsync();
+                .Include(o => o.AppUser).ToListAsync();
         }
     }
 }

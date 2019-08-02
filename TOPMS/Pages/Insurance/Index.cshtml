@@ -15,7 +15,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Insurance[0].User)
+                @Html.DisplayNameFor(model => model.Insurance[0].AppUser)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Insurance[0].SendToEmail)
@@ -36,7 +36,7 @@
 @foreach (var item in Model.Insurance) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.User.Id)
+                @Html.DisplayFor(modelItem => item.AppUser.Id)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SendToEmail)

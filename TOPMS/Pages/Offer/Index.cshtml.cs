@@ -24,7 +24,7 @@ namespace TOPMS.Pages.Offer
         {
             Offer = await _context.Offers
                 .Include(o => o.TransportRFQ)
-                .Include(o => o.User).ToListAsync();
+                .Include(o => o.AppUser).ToListAsync();
         }
     }
 }

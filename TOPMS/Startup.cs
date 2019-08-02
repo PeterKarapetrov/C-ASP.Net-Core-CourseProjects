@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -41,7 +42,8 @@ namespace TOPMS
             services.AddDbContext<TOPMSContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("TOPMSContext")));
 
-            services.AddIdentity<TOPMS.Models.User, TOPMS.Models.Role>()
+            services.AddIdentity<AppUser, AppRole>()
+                .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<TOPMSContext>()
                 .AddDefaultTokenProviders();
 
@@ -188,12 +190,12 @@ namespace TOPMS
         private async Task CreateRoles(IServiceProvider serviceProvider)
         { 
             //initializing custom roles 
-            var RoleManager = serviceProvider.GetRequiredService<RoleManager<Role>>();
+            var RoleManager = serviceProvider.GetRequiredService<RoleManager<AppRole>>();
             //var UserManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-            Role[] roles = { new Role { Name = "Admin", Descrition = "System Admin" },
-                new Role { Name = "Approver", Descrition = "Inside company employee with certain authorization" },
-                new Role { Name = "User", Descrition = "Inside company employee with certain authorization" },
-                new Role { Name = "Forwarder", Descrition = "Outside company user - Forwarder" },
+            AppRole[] roles = { new AppRole { Name = "Admin", Descrition = "System Admin" },
+                new AppRole { Name = "Approver", Descrition = "Inside company employee with certain authorization" },
+                new AppRole { Name = "User", Descrition = "Inside company employee with certain authorization" },
+                new AppRole { Name = "Forwarder", Descrition = "Outside company user - Forwarder" },
             };
 
             IdentityResult roleResult;

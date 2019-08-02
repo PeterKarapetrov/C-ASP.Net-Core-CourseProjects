@@ -2,6 +2,16 @@
 {
     public class CompanyService
     {
+        public CompanyService(Company company, string serviceId)
+        {
+            this.Company = company;
+            this.ServiceId = serviceId;
+        }
+
+        public CompanyService()
+        {
+
+        }
         public string CompanyId { get; set; }
 
         public Company Company { get; set; }

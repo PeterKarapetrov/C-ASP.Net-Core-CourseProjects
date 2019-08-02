@@ -8,7 +8,7 @@ namespace TOPMS.Models
     {
         public Company()
         {
-            this.Users = new List<User>();
+            this.AppUsers = new List<AppUser>();
             this.CompanyTransports = new List<CompanyTransport>();
             this.CompanyServices = new List<CompanyService>();
             this.CompanyAreaOfServices = new List<CompanyAreaOfService>();
@@ -40,7 +40,7 @@ namespace TOPMS.Models
 
         public string SpecialRequirements { get; set; }
 
-        public ICollection<User> Users { get; set; }
+        public ICollection<AppUser> AppUsers { get; set; }
 
         public ICollection<CompanyTransport> CompanyTransports { get; set; }
 

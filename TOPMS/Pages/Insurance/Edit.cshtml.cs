@@ -30,7 +30,7 @@ namespace TOPMS.Pages.Insurance
             }
 
             Insurance = await _context.Insurances
-                .Include(i => i.User).FirstOrDefaultAsync(m => m.Id == id);
+                .Include(i => i.AppUser).FirstOrDefaultAsync(m => m.Id == id);
 
             if (Insurance == null)
             {

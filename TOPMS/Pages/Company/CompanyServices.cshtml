@@ -1,0 +1,53 @@
+﻿@page
+@model TOPMS.Pages.Company.CompanyServicesModel
+
+@{
+    ViewData["Title"] = "CompanyServices";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>CompanyServices</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Services[0].Name)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Services)
+                    {
+                        <tr>
+                            <td>
+                                <input asp-for="@item.IsChecked" type="checkbox" />
+                                <label asp-for="@item.Name">@item.Name</label>
+                                <input asp-for="@item.Id" type="hidden" />
+                                <input asp-for="@item.Name" type="hidden" />
+                                <span>&nbsp &nbsp &nbsp</span>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

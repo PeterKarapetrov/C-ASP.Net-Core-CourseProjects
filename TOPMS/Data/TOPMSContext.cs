@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity.ModelConfiguration.Configuration;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using TOPMS.Models;
-using TOPMS.Pages.Company;
 
 namespace TOPMS.Models
 {
-    public class TOPMSContext : IdentityDbContext<TOPMS.Models.User>
+    public class TOPMSContext : IdentityDbContext<AppUser>
     {
         public TOPMSContext (DbContextOptions<TOPMSContext> options)
             : base(options)
@@ -62,7 +55,7 @@ namespace TOPMS.Models
                 .HasForeignKey(ca => ca.AreaOfServiceId);
 
             modelBuilder.Entity<TransportRFQ>()
-                .HasOne<User>(t => t.User) 
+                .HasOne<AppUser>(t => t.AppUser) 
                 .WithMany(u => u.TransportRFQs);
 
             modelBuilder.Entity<TransportRFQ>()
@@ -98,9 +91,9 @@ namespace TOPMS.Models
             base.OnModelCreating(modelBuilder);
         }
 
-        public DbSet<TOPMS.Models.User> AppUsers { get; set; }
+        public DbSet<AppUser> AppUsers { get; set; }
 
-        public DbSet<TOPMS.Models.Role> AppRoles { get; set; }
+        public DbSet<AppRole> AppRoles { get; set; }
 
         public DbSet<Company> Companies { get; set; }
 

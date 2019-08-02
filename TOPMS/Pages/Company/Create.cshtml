@@ -1,5 +1,6 @@
 ﻿@page
 @model TOPMS.Pages.Company.CreateModel
+@using TOPMS.Pages.Company
 
 @{
     ViewData["Title"] = "Create";
@@ -60,6 +61,7 @@
                 <input asp-for="Company.ContactPhoneNumber" class="form-control" />
                 <span asp-validation-for="Company.ContactPhoneNumber" class="text-danger"></span>
             </div>
+            <vc:company-service></vc:company-service>
             <div class="form-group">
                 <label asp-for="Company.WorkingTime" class="control-label"></label>
                 <input asp-for="Company.WorkingTime" class="form-control" />

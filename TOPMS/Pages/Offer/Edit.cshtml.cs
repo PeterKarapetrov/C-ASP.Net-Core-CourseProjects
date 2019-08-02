@@ -31,7 +31,7 @@ namespace TOPMS.Pages.Offer
 
             Offer = await _context.Offers
                 .Include(o => o.TransportRFQ)
-                .Include(o => o.User).FirstOrDefaultAsync(m => m.Id == id);
+                .Include(o => o.AppUser).FirstOrDefaultAsync(m => m.Id == id);
 
             if (Offer == null)
             {
