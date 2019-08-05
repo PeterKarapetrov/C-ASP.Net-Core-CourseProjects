@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TOPMS.Models;
+using TOPMS.Data;
 
 namespace TOPMS.Pages.Company
 {

@@ -6,21 +6,21 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using TOPMS.Models;
+using TOPMS.Data;
 
 namespace TOPMS.Pages.Offer
 {
     public class EditModel : PageModel
     {
-        private readonly TOPMS.Models.TOPMSContext _context;
+        private readonly TOPMSContext _context;
 
-        public EditModel(TOPMS.Models.TOPMSContext context)
+        public EditModel(TOPMSContext context)
         {
             _context = context;
         }
 
         [BindProperty]
-        public TOPMS.Models.Offer Offer { get; set; }
+        public Models.Offer Offer { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {

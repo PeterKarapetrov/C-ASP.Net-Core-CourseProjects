@@ -5,15 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using TOPMS.Models;
+using TOPMS.Data;
 
 namespace TOPMS.Pages.TransportRFQ
 {
     public class DetailsModel : PageModel
     {
-        private readonly TOPMS.Models.TOPMSContext _context;
+        private readonly TOPMSContext _context;
 
-        public DetailsModel(TOPMS.Models.TOPMSContext context)
+        public DetailsModel(TOPMSContext context)
         {
             _context = context;
         }

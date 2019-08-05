@@ -5,15 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using TOPMS.Models;
+using TOPMS.Data;
 
 namespace TOPMS.Pages.Order
 {
     public class CreateModel : PageModel
     {
-        private readonly TOPMS.Models.TOPMSContext _context;
+        private readonly TOPMSContext _context;
 
-        public CreateModel(TOPMS.Models.TOPMSContext context)
+        public CreateModel (TOPMSContext context)
         {
             _context = context;
         }
@@ -25,7 +25,7 @@ namespace TOPMS.Pages.Order
         }
 
         [BindProperty]
-        public TOPMS.Models.Order Order { get; set; }
+        public Models.Order Order { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {

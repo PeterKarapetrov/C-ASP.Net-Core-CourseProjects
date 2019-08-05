@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using TOPMS.Models;
 using Microsoft.AspNetCore.Identity;
+using TOPMS.Models;
+using TOPMS.Data;
+
 
 namespace TOPMS.Pages.Company
 {

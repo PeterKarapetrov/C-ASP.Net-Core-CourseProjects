@@ -13,7 +13,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TOPMS.Data;
 using TOPMS.Models;
+using TOPMS.Services;
+using TOPMS.Services.Contracts;
 
 namespace TOPMS
 {
@@ -46,6 +49,9 @@ namespace TOPMS
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<TOPMSContext>()
                 .AddDefaultTokenProviders();
+
+            // Register Application Services
+            services.AddTransient<IUserService, UserService>();
 
             //services.AddSingleton<IEmailSender, EmailSender>();
 

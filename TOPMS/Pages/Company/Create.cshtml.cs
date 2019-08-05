@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using TOPMS.Models;
+using TOPMS.Data;
+using TOPMS.Services.Contracts;
 
 namespace TOPMS.Pages.Company
 {
@@ -15,11 +17,13 @@ namespace TOPMS.Pages.Company
     {
         private readonly TOPMSContext _context;
         private readonly UserManager<AppUser> _userManager;
+        private readonly IUserService _userService;
 
-        public CreateModel(TOPMSContext context, UserManager<AppUser> userManager)
+        public CreateModel(TOPMSContext context, UserManager<AppUser> userManager, IUserService userService)
         {
             _context = context;
             _userManager = userManager;
+            _userService = userService;
         }
 
         public IActionResult OnGet()
@@ -51,7 +55,7 @@ namespace TOPMS.Pages.Company
 
         public override void OnPageHandlerSelected(PageHandlerSelectedContext context)
         {
-            if (!(User.IsInRole("Admin") || User.IsInRole("Forwarder") || User.IsInRole("Approver") || User.IsInRole("User")))
+            if (!_userService.UserHasRole(User.Identity.Name))
             {
                 context.HttpContext.Response.Redirect("/Error");
                 //TO DO implement Error page

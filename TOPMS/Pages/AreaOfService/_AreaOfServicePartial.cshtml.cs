@@ -5,20 +5,21 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using TOPMS.Models;
+using TOPMS.Data;
+
 
 namespace TOPMS.Pages.AreaOfService
 {
     public class _AreaOfServicePartialModel : PageModel
     {
-        private readonly TOPMS.Models.TOPMSContext _context;
+        private readonly TOPMSContext _context;
 
-        public _AreaOfServicePartialModel(TOPMS.Models.TOPMSContext context)
+        public _AreaOfServicePartialModel(TOPMSContext context)
         {
             _context = context;
         }
 
-        public IList<TOPMS.Models.AreaOfService> AreaOfService { get;set; }
+        public IList<Models.AreaOfService> AreaOfService { get;set; }
 
         public async Task OnGetAsync()
         {

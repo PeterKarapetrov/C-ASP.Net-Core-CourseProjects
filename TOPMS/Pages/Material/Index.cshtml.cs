@@ -5,20 +5,20 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using TOPMS.Models;
+using TOPMS.Data;
 
 namespace TOPMS.Pages.Material
 {
     public class IndexModel : PageModel
     {
-        private readonly TOPMS.Models.TOPMSContext _context;
+        private readonly TOPMSContext _context;
 
-        public IndexModel(TOPMS.Models.TOPMSContext context)
+        public IndexModel(TOPMSContext context)
         {
             _context = context;
         }
 
-        public IList<TOPMS.Models.Material> Material { get;set; }
+        public IList<Models.Material> Material { get;set; }
 
         public async Task OnGetAsync()
         {
