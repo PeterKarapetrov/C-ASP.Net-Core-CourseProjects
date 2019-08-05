@@ -1,0 +1,44 @@
+﻿@page
+@model TOPMS.Areas.Identity.Pages.Account.AppUserDeleteModel
+@{
+    ViewData["Title"] = "AppUserDelete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>AppUserDelete</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="DeleteAppUser.Id" />
+            <div class="form-group">
+                <label asp-for="DeleteAppUser.UserName" class="control-label"></label>
+                <input asp-for="DeleteAppUser.UserName" asp-items="Html.GetEnumSelectList<TOPMS.Enums.CompanyType>()" class="form-control" />
+                <span asp-validation-for="DeleteAppUser.UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeleteAppUser.Email" class="control-label"></label>
+                <input asp-for="DeleteAppUser.Email" class="form-control" />
+                <span asp-validation-for="DeleteAppUser.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeleteAppUser.PhoneNumber" class="control-label"></label>
+                <input asp-for="DeleteAppUser.PhoneNumber" class="form-control" />
+                <span asp-validation-for="DeleteAppUser.PhoneNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Delete" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./AppUsers">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

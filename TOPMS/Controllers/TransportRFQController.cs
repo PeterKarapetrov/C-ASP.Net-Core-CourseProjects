@@ -1,93 +1,93 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Threading.Tasks;
+//using Microsoft.AspNetCore.Http;
+//using Microsoft.AspNetCore.Mvc;
 
-namespace TOPMS.Controllers
-{
-    public class TransportRFQController : Controller
-    {
-        // GET: TransportRFQ
-        public ActionResult Index()
-        {
-            return View();
-        }
+//namespace TOPMS.Controllers
+//{
+//    public class TransportRFQController : Controller
+//    {
+//        // GET: TransportRFQ
+//        public ActionResult Index()
+//        {
+//            return View();
+//        }
 
-        // GET: TransportRFQ/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
+//        // GET: TransportRFQ/Details/5
+//        public ActionResult Details(int id)
+//        {
+//            return View();
+//        }
 
-        // GET: TransportRFQ/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+//        // GET: TransportRFQ/Create
+//        public ActionResult Create()
+//        {
+//            return View();
+//        }
 
-        // POST: TransportRFQ/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
+//        // POST: TransportRFQ/Create
+//        [HttpPost]
+//        [ValidateAntiForgeryToken]
+//        public ActionResult Create(IFormCollection collection)
+//        {
+//            try
+//            {
+//                // TODO: Add insert logic here
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+//                return RedirectToAction(nameof(Index));
+//            }
+//            catch
+//            {
+//                return View();
+//            }
+//        }
 
-        // GET: TransportRFQ/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
+//        // GET: TransportRFQ/Edit/5
+//        public ActionResult Edit(int id)
+//        {
+//            return View();
+//        }
 
-        // POST: TransportRFQ/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
+//        // POST: TransportRFQ/Edit/5
+//        [HttpPost]
+//        [ValidateAntiForgeryToken]
+//        public ActionResult Edit(int id, IFormCollection collection)
+//        {
+//            try
+//            {
+//                // TODO: Add update logic here
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+//                return RedirectToAction(nameof(Index));
+//            }
+//            catch
+//            {
+//                return View();
+//            }
+//        }
 
-        // GET: TransportRFQ/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
+//        // GET: TransportRFQ/Delete/5
+//        public ActionResult Delete(int id)
+//        {
+//            return View();
+//        }
 
-        // POST: TransportRFQ/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
+//        // POST: TransportRFQ/Delete/5
+//        [HttpPost]
+//        [ValidateAntiForgeryToken]
+//        public ActionResult Delete(int id, IFormCollection collection)
+//        {
+//            try
+//            {
+//                // TODO: Add delete logic here
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-    }
-}
+//                return RedirectToAction(nameof(Index));
+//            }
+//            catch
+//            {
+//                return View();
+//            }
+//        }
+//    }
+//}

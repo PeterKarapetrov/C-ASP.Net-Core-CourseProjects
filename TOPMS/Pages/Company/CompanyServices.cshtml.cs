@@ -12,18 +12,18 @@ namespace TOPMS.Pages.Company
 {
     public class CompanyServicesModel : PageModel
     {
-        private readonly TOPMS.Models.TOPMSContext _context;
+        private readonly TOPMSContext _context;
 
-        public CompanyServicesModel(TOPMS.Models.TOPMSContext context)
+        public CompanyServicesModel(TOPMSContext context)
         {
             _context = context;
         }
 
-        [BindProperty]
-        public Models.Company Company { get; set; }
+        //[BindProperty]
+        //public Models.Company Company { get; set; }
 
         [BindProperty]
-        public IList<Models.Service> Services { get; set; }
+        public IList<Service> Services { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -32,9 +32,9 @@ namespace TOPMS.Pages.Company
                 return NotFound();
             }
 
-            Company = await _context.Companies.FirstOrDefaultAsync(m => m.Id == id);
+            var company = await _context.Companies.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (Company == null)
+            if (company == null)
             {
                 return NotFound();
             }
@@ -44,7 +44,7 @@ namespace TOPMS.Pages.Company
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(string id)
         {
             if (!ModelState.IsValid)
             {
@@ -60,13 +60,13 @@ namespace TOPMS.Pages.Company
             {
                 if (checkBoxResultList[i] == "true")
                 {
-                    var companyService = new CompanyService(Company, serviceIdList[i]);
+                    var companyService = new CompanyService(id, serviceIdList[i]);
                     _context.CompanyServices.Add(companyService);
                 }
 
             }
 
-            _context.Attach(Company).State = EntityState.Modified;
+            //_context.Attach(Company).State = EntityState.Modified;
 
             try
             {
@@ -74,7 +74,7 @@ namespace TOPMS.Pages.Company
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CompanyExists(Company.Id))
+                if (!CompanyExists(id))
                 {
                     return NotFound();
                 }

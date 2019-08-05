@@ -8,7 +8,7 @@
 <h1>AppUsers</h1>
 
 <p>
-<a asp-page="Create">Create New</a>
+<a asp-page="Register">Create New</a>
 </p>
 
 <table class="table">
@@ -46,9 +46,9 @@
                     @Html.DisplayFor(modelItem => item.Role)
                 </td>
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    <a asp-area="Identity" asp-page="./AppUserEdit" asp-route-id="@item.Id">Edit</a> |
+                    @*<a asp-page="./Details" asp-route-id="@item.Id">Details</a> *@
+                    <a asp-area="Identity" asp-page="./AppUserDelete" asp-route-id="@item.Id">Delete</a>
                 </td>
             </tr>
         }

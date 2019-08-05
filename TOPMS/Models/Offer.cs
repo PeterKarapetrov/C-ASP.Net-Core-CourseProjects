@@ -15,7 +15,7 @@ namespace TOPMS.Models
         public AppUser AppUser { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime Date { get; set; } = DateTime.UtcNow;
+        public DateTime Date { get; set; }
 
         [DataType(DataType.Date)]
         public DateTime ValidTill { get; set; }

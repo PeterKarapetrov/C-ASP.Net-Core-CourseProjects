@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using TOPMS.Enums;
 
 namespace TOPMS.Models
 {
@@ -19,8 +20,6 @@ namespace TOPMS.Models
                 this.Insurances = new List<Insurance>();
                 this.TransportRFQs = new List<TransportRFQ>(); 
             }
-
-            //public virtual ICollection<UserRole> UserRoles { get; set; }
 
             [ForeignKey("Company")]
             public string CompanyId { get; set; }

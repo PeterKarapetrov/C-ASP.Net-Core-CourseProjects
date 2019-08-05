@@ -6,23 +6,41 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using TOPMS.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace TOPMS.Pages.Company
 {
     public class IndexModel : PageModel
     {
-        private readonly TOPMS.Models.TOPMSContext _context;
+        private readonly TOPMSContext _context;
+        private readonly UserManager<AppUser> _userManager;
 
-        public IndexModel(TOPMS.Models.TOPMSContext context)
+        public IndexModel(TOPMSContext context, UserManager<AppUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
-        public IList<TOPMS.Models.Company> Company { get; set; }
+        public IList<Models.Company> Company { get; set; }
 
         public async Task OnGetAsync()
         {
-            Company = await _context.Companies.ToListAsync();
+            if (User.IsInRole("Forwarder"))
+            {
+                var userId = _userManager.GetUserId(User);
+                var forwarderUser = await _userManager.FindByIdAsync(userId);
+
+                Company = await _context.Companies.Where(c => c.AppUsers.Contains(forwarderUser)).ToListAsync();
+            }
+            else if (User.IsInRole("Admin") || User.IsInRole("Approver") || User.IsInRole("User"))
+            {
+                Company = await _context.Companies.ToListAsync();
+            }
+            else
+            {
+                Company = new List<Models.Company>();
+            }
+            
         }
     }
 }

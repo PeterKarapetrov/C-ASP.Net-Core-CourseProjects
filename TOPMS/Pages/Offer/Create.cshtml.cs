@@ -20,8 +20,11 @@ namespace TOPMS.Pages.Offer
 
         public IActionResult OnGet()
         {
-        ViewData["TransportRFQId"] = new SelectList(_context.TransportRFQs, "Id", "Id");
-        ViewData["UserId"] = new SelectList(_context.AppUsers, "Id", "Id");
+        
+        ViewData["TransportRFQId"] = "Gosho"/*new SelectList(_context.TransportRFQs, "Id", "Id")*/;
+        ViewData["UserId"] = "Pesho"/*new SelectList(_context.AppUsers, "Id", "Id")*/;
+        ViewData["Date"] = DateTime.UtcNow.Date;
+        ViewData["ValidTill"] = DateTime.UtcNow.Date.AddDays(14);
             return Page();
         }
 

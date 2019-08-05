@@ -2,9 +2,9 @@
 {
     public class CompanyService
     {
-        public CompanyService(Company company, string serviceId)
+        public CompanyService(string companyId, string serviceId)
         {
-            this.Company = company;
+            this.CompanyId = companyId;
             this.ServiceId = serviceId;
         }
 

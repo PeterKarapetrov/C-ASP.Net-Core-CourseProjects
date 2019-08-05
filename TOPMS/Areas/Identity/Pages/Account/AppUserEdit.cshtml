@@ -1,0 +1,51 @@
+﻿@page
+@model TOPMS.Areas.Identity.Pages.Account.AppUserEditModel
+@{
+    ViewData["Title"] = "AppUserEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>AppUserEdit</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="EditAppUser.Id" />
+            <div class="form-group">
+                <label asp-for="EditAppUser.UserName" class="control-label"></label>
+                <input asp-for="EditAppUser.UserName" asp-items="Html.GetEnumSelectList<TOPMS.Enums.CompanyType>()" class="form-control" />
+                <span asp-validation-for="EditAppUser.UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EditAppUser.Email" class="control-label"></label>
+                <input asp-for="EditAppUser.Email" class="form-control" />
+                <span asp-validation-for="EditAppUser.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EditAppUser.PhoneNumber" class="control-label"></label>
+                <input asp-for="EditAppUser.PhoneNumber" class="form-control" />
+                <span asp-validation-for="EditAppUser.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EditAppUser.Role" class="control-label"></label>
+                <select asp-for="EditAppUser.Role" asp-items="Html.GetEnumSelectList<TOPMS.Enums.AppRoleEnum>()" class="form-control">
+                    <option selected="selected" value="">Please select</option>
+                </select>
+                <span asp-validation-for="EditAppUser.Role" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./AppUsers">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

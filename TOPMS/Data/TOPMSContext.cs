@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace TOPMS.Models
 {
-    public class TOPMSContext : IdentityDbContext<AppUser>
+    public class TOPMSContext : IdentityDbContext<AppUser, AppRole, string>
     {
         public TOPMSContext (DbContextOptions<TOPMSContext> options)
             : base(options)
