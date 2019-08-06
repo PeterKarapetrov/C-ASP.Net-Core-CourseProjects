@@ -48,9 +48,9 @@ namespace TOPMS.Pages.Company
 
             var companyType = Enum.GetName(typeof(CompanyType), Company.CompanyType);
 
-            if (companyType == "Forwarder")
+            if (companyType == "Forwarder") // TODO change magic string
             {
-                return Redirect($"./CompanyServices?id={Company.Id}");
+                return Redirect($"/AreaOfService/Create?id={Company.Id}");
             }
 
             return RedirectToPage("./Index");

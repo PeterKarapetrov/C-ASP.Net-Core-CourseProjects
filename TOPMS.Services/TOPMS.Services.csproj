@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TOPMS.Data\TOPMS.Data.csproj" />
     <ProjectReference Include="..\TOPMS.Models\TOPMS.Models.csproj" />
   </ItemGroup>
 

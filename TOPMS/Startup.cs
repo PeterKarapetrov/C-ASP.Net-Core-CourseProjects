@@ -17,6 +17,7 @@ using TOPMS.Data;
 using TOPMS.Models;
 using TOPMS.Services;
 using TOPMS.Services.Contracts;
+using CompanyService = TOPMS.Services.CompanyService;
 
 namespace TOPMS
 {
@@ -52,6 +53,12 @@ namespace TOPMS
 
             // Register Application Services
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IAreaOfServiceService, AreaOfServiceService>();
+            services.AddTransient<ICompanyService, CompanyService>();
+            services.AddTransient<ICompanyServiceService, CompanyServiceService>();
+            services.AddTransient<IServiceService, ServiceService>();
+            services.AddTransient<ITransportService, TransportService>();
+            services.AddTransient<ICompanyTransportService, CompanyTransportService>();
 
             //services.AddSingleton<IEmailSender, EmailSender>();
 

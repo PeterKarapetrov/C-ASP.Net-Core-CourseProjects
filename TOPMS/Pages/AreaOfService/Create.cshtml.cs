@@ -12,7 +12,7 @@ namespace TOPMS.Pages.AreaOfService
         private readonly TOPMSContext _context;
         private readonly IUserService _userService;
 
-        public CreateModel(TOPMS.Data.TOPMSContext context, IUserService userService)
+        public CreateModel(TOPMSContext context, IUserService userService)
         {
             _context = context;
             _userService = userService;

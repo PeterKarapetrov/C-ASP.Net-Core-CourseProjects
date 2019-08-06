@@ -12,6 +12,7 @@
         {
 
         }
+
         public string CompanyId { get; set; }
 
         public Company Company { get; set; }
