@@ -1,11 +1,26 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @inject UserManager<AppUser> UserManager
 
-<ul class="navbar-nav">
-    @if (User.IsInRole("Admin") || User.IsInRole("Approver"))
-    {
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/AppUsers">Users</a>
-        </li>
-    }
-</ul>
+    <ul class="navbar-nav">
+        @if (User.IsInRole("Admin") || User.IsInRole("Approver"))
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-page="/AreaOfService/Index">Areas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-page="/Transport/Index">Transport</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-page="/Service/Index">Services</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-page="/Status/Index">Statuses</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-page="/ExchangeRate/Index">ExchangeRates</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/AppUsers">Users</a>
+            </li>
+        }
+    </ul>

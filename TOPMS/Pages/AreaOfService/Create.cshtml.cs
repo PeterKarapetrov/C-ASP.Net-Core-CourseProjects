@@ -1,29 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using TOPMS.Models;
 using TOPMS.Data;
 using TOPMS.Services.Contracts;
-using TOPMS.Enums;
 
-namespace TOPMS.Pages.Company
+namespace TOPMS.Pages.AreaOfService
 {
     public class CreateModel : PageModel
     {
         private readonly TOPMSContext _context;
-        private readonly UserManager<AppUser> _userManager;
         private readonly IUserService _userService;
 
-        public CreateModel(TOPMSContext context, UserManager<AppUser> userManager, IUserService userService)
+        public CreateModel(TOPMS.Data.TOPMSContext context, IUserService userService)
         {
             _context = context;
-            _userManager = userManager;
             _userService = userService;
         }
 
@@ -33,7 +24,7 @@ namespace TOPMS.Pages.Company
         }
 
         [BindProperty]
-        public Models.Company Company { get; set; }
+        public Models.AreaOfService AreaOfService { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -42,29 +33,19 @@ namespace TOPMS.Pages.Company
                 return Page();
             }
 
-            Company.AppUsers.Add(_userService.GetAppUserFromUserByName(User.Identity.Name));
-            _context.Companies.Add(Company);
+            _context.AreaOfService.Add(AreaOfService);
             await _context.SaveChangesAsync();
 
-            var companyType = Enum.GetName(typeof(CompanyType), Company.CompanyType);
-
-            if (companyType == "Forwarder")
-            {
-                return Redirect($"./CompanyServices?id={Company.Id}");
-            }
-
             return RedirectToPage("./Index");
-
         }
 
         public override void OnPageHandlerSelected(PageHandlerSelectedContext context)
         {
-            if (!_userService.UserHasRole(User.Identity.Name))
+            if (!_userService.UserIsAdmin(User.Identity.Name))
             {
                 context.HttpContext.Response.Redirect("/ErrorNotAuthorized");
                 //TO DO implement Error page
             }
-
         }
     }
 }

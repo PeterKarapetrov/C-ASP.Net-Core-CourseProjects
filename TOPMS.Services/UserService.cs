@@ -16,18 +16,37 @@ namespace TOPMS.Services
             _roleManger = roleManger;
         }
 
+        public AppUser GetAppUserFromUserByName(string userName)
+        {
+            return _userManager.FindByNameAsync(userName).GetAwaiter().GetResult();
+        }
+
         public bool UserHasRole(string userName)
         {
-            var user = _userManager.FindByNameAsync(userName).GetAwaiter().GetResult(); ;
+            var appUser = _userManager.FindByNameAsync(userName).GetAwaiter().GetResult();
 
-            var userRoles = _userManager.GetRolesAsync(user).GetAwaiter().GetResult();
+            var appUserRoles = _userManager.GetRolesAsync(appUser).GetAwaiter().GetResult();
 
-            if (userRoles.Count == 0)
+            if (appUserRoles.Count == 0)
             {
                 return false;
             }
 
             return true;
+        }
+
+        public bool UserIsAdmin(string userName)
+        {
+            var appUser = _userManager.FindByNameAsync(userName).GetAwaiter().GetResult();
+
+            var appUserRoles = _userManager.GetRolesAsync(appUser).GetAwaiter().GetResult();
+
+            if (appUserRoles.Contains("Admin"))
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

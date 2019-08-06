@@ -20,11 +20,9 @@ namespace TOPMS.Pages.Company
             _context = context;
         }
 
-        //[BindProperty]
-        //public Models.Company Company { get; set; }
 
         [BindProperty]
-        public IList<Service> Services { get; set; }
+        public IList<Models.Service> Services { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -52,8 +50,6 @@ namespace TOPMS.Pages.Company
                 return Page();
             }
 
-            //var company = _context.Companies.FirstOrDefault();
-
             var checkBoxResultList = Request.Form["item.IsChecked"].ToList();
             var serviceIdList = Request.Form["item.Id"].ToList();
 
@@ -66,8 +62,6 @@ namespace TOPMS.Pages.Company
                 }
 
             }
-
-            //_context.Attach(Company).State = EntityState.Modified;
 
             try
             {
