@@ -1,32 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using TOPMS.Data;
-using TOPMS.Models;
 using TOPMS.Services.Contracts;
 
-namespace TOPMS.Pages.CompanyTransport
+namespace TOPMS.Pages.CompanyAreaOfService
 {
     public class CreateModel : PageModel
     {
         private readonly TOPMSContext _context;
         private readonly ICompanyService _companyService;
-        private readonly ICompanyTransportService _companyTranportService;
-        private readonly ITransportService _transportService;
+        private readonly ICompanyAreaOfServiceService _companyAreaOfServiceService;
+        private readonly IAreaOfServiceService _areaOfServiceService;
 
         public CreateModel(TOPMSContext context,
             ICompanyService companyService,
-            ICompanyTransportService companyTranportService,
-            ITransportService transportService)
+            ICompanyAreaOfServiceService companyAreaOfServiceService,
+            IAreaOfServiceService areaOfServiceService)
         {
             _context = context;
             _companyService = companyService;
-            _companyTranportService = companyTranportService;
-            _transportService = transportService;
+            _companyAreaOfServiceService = companyAreaOfServiceService;
+            _areaOfServiceService = areaOfServiceService;
         }
 
         public IActionResult OnGet(string id)
@@ -36,15 +34,15 @@ namespace TOPMS.Pages.CompanyTransport
                 return NotFound();
             }
 
-            _companyTranportService.DeleteCompanyTransports(id);
+            _companyAreaOfServiceService.DeleteCompanyAreaOfServices(id);
             _context.SaveChanges();
-            Transports = _transportService.GetAllTransports();
+            AreaOfServices = _areaOfServiceService.GetAllAreaOfService();
 
             return Page();
         }
 
         [BindProperty]
-        public IList<Models.Transport> Transports { get; set; }
+        public IList<Models.AreaOfService> AreaOfServices { get; set; }
 
         public async Task<IActionResult> OnPostAsync(string id)
         {
@@ -65,13 +63,13 @@ namespace TOPMS.Pages.CompanyTransport
                 return NotFound();
             }
 
-            var transportNamesList = Request.Form["item.IsChecked"].ToList();
-            var transportIdsList = Request.Form["item.Id"].ToList();
-            _companyTranportService.AddCompanyTransport(transportNamesList, transportIdsList, id);
+            var areasNamesList = Request.Form["item.IsChecked"].ToList();
+            var areasIdsList = Request.Form["item.Id"].ToList();
+            _companyAreaOfServiceService.AddAreaOfService(areasNamesList, areasIdsList, id);
 
             await _context.SaveChangesAsync();
 
-            return Redirect($"/CompanyAreaOfService/Create?id={id}");
+            return Redirect($"/CompanyService/Create?id={id}");
         }
     }
 }

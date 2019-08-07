@@ -15,7 +15,10 @@ namespace TOPMS.Services
         }
         public IList<Models.AreaOfService> GetAllAreaOfService()
         {
-            return _context.AreaOfService.ToList();
+            return _context.AreaOfService
+                .OrderBy(a => a.Name)
+                .ThenBy(a => a.Id)
+                .ToList();
         }
     }
 }

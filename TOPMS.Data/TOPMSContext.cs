@@ -86,6 +86,11 @@ namespace TOPMS.Data
                 .WithOne(t => t.Insurance)
                 .HasForeignKey<TransportRFQ>(t => t.InsuranceId);
 
+            modelBuilder.Entity<AppUser>()
+                .HasOne(u => u.Company)
+                .WithMany(c => c.AppUsers)
+                .OnDelete(DeleteBehavior.SetNull);
+
             base.OnModelCreating(modelBuilder);
         }
 

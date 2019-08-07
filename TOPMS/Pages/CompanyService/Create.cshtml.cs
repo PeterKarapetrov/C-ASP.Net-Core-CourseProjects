@@ -31,6 +31,11 @@ namespace TOPMS.Pages.CompanyService
 
         public IActionResult OnGet(string id)
         {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
             _companyServiceService.DeleteCompanyAllServices(id);
             _context.SaveChanges();
             Services = _serviceService.GetAllServices();
@@ -66,7 +71,7 @@ namespace TOPMS.Pages.CompanyService
 
             await _context.SaveChangesAsync();
 
-            return RedirectToPage($"/Company/Details?id={id}");
+            return Redirect($"/Company/Details?id={id}");
         }
     }
 }

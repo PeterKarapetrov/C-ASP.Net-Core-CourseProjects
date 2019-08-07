@@ -10,6 +10,8 @@ namespace TOPMS.Services.Contracts
 
         IList<Models.CompanyTransport> GetCompanyTransports(string companyId);
 
-        void DeleteCompanyTransports(string id);
+        void DeleteCompanyTransports(string companyId);
+
+        string GetCompanyTransportsAsString(string companyId);
     }
 }

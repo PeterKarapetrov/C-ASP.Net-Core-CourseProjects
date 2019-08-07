@@ -12,5 +12,7 @@ namespace TOPMS.Services.Contracts
         IList<Models.CompanyService> GetCompanyServices(string companyId);
 
         void DeleteCompanyAllServices(string id);
+
+        string GetCompanyServicesAsString(string companyId);
     }
 }

@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
-using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -59,6 +56,7 @@ namespace TOPMS
             services.AddTransient<IServiceService, ServiceService>();
             services.AddTransient<ITransportService, TransportService>();
             services.AddTransient<ICompanyTransportService, CompanyTransportService>();
+            services.AddTransient<ICompanyAreaOfServiceService, CompanyAreaOfServiceService>();
 
             //services.AddSingleton<IEmailSender, EmailSender>();
 

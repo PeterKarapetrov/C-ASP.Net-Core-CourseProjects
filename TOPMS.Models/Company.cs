@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using TOPMS.Enums;
 
@@ -20,24 +21,44 @@ namespace TOPMS.Models
 
         public CompanyType CompanyType { get; set; }
 
+        [Required]
+        [RegularExpression(@"[a-zA-Z0-9]", ErrorMessage = "Please use numbers and latin alphabet letters only")]
         public string Name { get; set; }
 
+        [Required]
+        [RegularExpression(@"[a-zA-Z]", ErrorMessage = "Please use latin alphabet letters only")]
         public string Country { get; set; }
 
+        [Required]
+        [RegularExpression(@"[a-zA-Z]", ErrorMessage = "Please use latin alphabet letters only")]
         public string City { get; set; }
 
+        [Required]
+        [RegularExpression(@"[a-zA-Z0-9]", ErrorMessage = "Please use latin alphabet letters only")]
         public string ZIPCode { get; set; }
 
+        [Required]
+        [RegularExpression(@"[a-zA-Z0-9]", ErrorMessage = "Please use latin alphabet letters only")]
         public string Address { get; set; }
 
+        [Required]
+        [RegularExpression(@"[a-zA-Z]", ErrorMessage = "Please use latin alphabet letters only")]
         public string ContactPerson { get; set; }
 
+        [Required]
+        [EmailAddress]
         public string ContactEmail { get; set; }
 
+        [Required]
+        [Phone]
         public string ContactPhoneNumber { get; set; }
 
+        [Required]
+        [RegularExpression(@"[a-zA-Z0-9]", ErrorMessage = "Please use numbers and latin alphabet letters only")]
         public string WorkingTime { get; set; }
 
+        [Required]
+        [RegularExpression(@"[a-zA-Z0-9]", ErrorMessage = "Please use numbers and latin alphabet letters only")]
         public string SpecialRequirements { get; set; }
 
         public ICollection<AppUser> AppUsers { get; set; }

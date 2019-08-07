@@ -1,4 +1,6 @@
-﻿namespace TOPMS.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TOPMS.Models
 {
     public class CompanyService
     {
@@ -13,10 +15,12 @@
 
         }
 
+        [Required]
         public string CompanyId { get; set; }
 
         public Company Company { get; set; }
 
+        [Required]
         public string ServiceId { get; set; }
 
         public Service Service { get; set; }

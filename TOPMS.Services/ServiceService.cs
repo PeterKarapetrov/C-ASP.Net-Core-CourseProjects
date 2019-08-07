@@ -19,7 +19,10 @@ namespace TOPMS.Services
         }
         public IList<Service> GetAllServices()
         {
-            return _context.Services.ToList();
+            return _context.Services
+                .OrderBy(s => s.Name)
+                .ThenBy(s => s.Id)
+                .ToList();
         }
     }
 }

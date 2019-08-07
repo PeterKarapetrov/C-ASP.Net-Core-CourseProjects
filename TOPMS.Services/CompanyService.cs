@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using TOPMS.Data;
 using TOPMS.Models;
 using TOPMS.Services.Contracts;

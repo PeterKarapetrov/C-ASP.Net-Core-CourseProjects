@@ -8,12 +8,10 @@ namespace TOPMS.Services
     public class UserService : IUserService
     {
         private readonly UserManager<AppUser> _userManager;
-        private readonly RoleManager<AppRole> _roleManger;
 
-        public UserService(UserManager<AppUser> userManager, RoleManager<AppRole> roleManger)
+        public UserService(UserManager<AppUser> userManager)
         {
             _userManager = userManager;
-            _roleManger = roleManger;
         }
 
         public AppUser GetAppUserFromUserByName(string userName)

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using TOPMS.Data;
 using TOPMS.Services.Contracts;
@@ -35,6 +37,19 @@ namespace TOPMS.Services
         public IList<Models.CompanyService> GetCompanyServices(string companyId)
         {
             return _context.CompanyServices.Where(cs => cs.CompanyId == companyId).ToList();
+        }
+
+        public string GetCompanyServicesAsString(string companyId)
+        {
+            var serviceNames = _context.CompanyServices
+                .Include(cs => cs.Service)
+                .OrderBy(cs => cs.Service.Name)
+                .ThenBy(cs => cs.ServiceId)
+                .Where(cs => cs.CompanyId == companyId)
+                .Select(s => s.Service.Name)
+                .ToList();
+
+            return String.Join(", ", serviceNames);
         }
     }
 }

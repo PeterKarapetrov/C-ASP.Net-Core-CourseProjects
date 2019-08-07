@@ -17,7 +17,10 @@ namespace TOPMS.Services
 
         public IList<Transport> GetAllTransports()
         {
-            return _context.Transports.ToList();
+            return _context.Transports
+                .OrderByDescending(t => t.Name)
+                .ThenByDescending(t => t.Id)
+                .ToList();
         }
     }
 }

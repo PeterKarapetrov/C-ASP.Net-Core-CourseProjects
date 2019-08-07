@@ -77,6 +77,28 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Company.SpecialRequirements)
         </dd>
+        @if (Model.Company.CompanyType.ToString() == "Forwarder")
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Company.CompanyAreaOfServices)
+            </dt>
+            <dd class="col-sm-10">
+                @ViewData["CompanyAreaOfServices"]
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Company.CompanyTransports)
+            </dt>
+            <dd class="col-sm-10">
+                @ViewData["CompanyTransports"]
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Company.CompanyServices)
+            </dt>
+            <dd class="col-sm-10">
+                @ViewData["CompanyServices"]
+            </dd>
+        }
+
     </dl>
 </div>
 <div>

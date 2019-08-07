@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using TOPMS.Data;
+using TOPMS.Enums;
 
 namespace TOPMS.Pages.Company
 {
@@ -60,6 +61,13 @@ namespace TOPMS.Pages.Company
                 {
                     throw;
                 }
+            }
+
+            var companyType = Enum.GetName(typeof(CompanyType), Company.CompanyType);
+
+            if (companyType == "Forwarder") // TODO change magic string
+            {
+                return Redirect($"/CompanyTransport/Create?id={Company.Id}");
             }
 
             return RedirectToPage("./Index");

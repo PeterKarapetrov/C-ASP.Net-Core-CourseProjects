@@ -50,7 +50,7 @@ namespace TOPMS.Pages.Company
 
             if (companyType == "Forwarder") // TODO change magic string
             {
-                return Redirect($"/AreaOfService/Create?id={Company.Id}");
+                return Redirect($"/CompanyTransport/Create?id={Company.Id}");
             }
 
             return RedirectToPage("./Index");
