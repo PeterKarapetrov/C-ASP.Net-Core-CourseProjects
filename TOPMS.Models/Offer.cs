@@ -9,7 +9,6 @@ namespace TOPMS.Models
     {
         public string Id { get; set; }
 
-        [Required]
         [ForeignKey("AppUser")]
         public string AppUserId { get; set; }
 
@@ -24,7 +23,6 @@ namespace TOPMS.Models
         [DataType(DataType.Date)]
         public DateTime ValidTill { get; set; }
 
-        [Required]
         public string TransportRFQId {get; set;}
 
         [Required]

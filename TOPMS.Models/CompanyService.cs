@@ -15,12 +15,11 @@ namespace TOPMS.Models
 
         }
 
-        [Required]
+
         public string CompanyId { get; set; }
 
         public Company Company { get; set; }
 
-        [Required]
         public string ServiceId { get; set; }
 
         public Service Service { get; set; }

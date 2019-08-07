@@ -8,16 +8,18 @@ namespace TOPMS.Models
     {
         public string Id { get; set; }
 
-        [Required]
+
         [ForeignKey("AppUser")]
         public string AppUserId { get; set; }
 
+        [Required]
         public AppUser AppUser { get; set; }
 
         [Required]
         [EmailAddress]
         public string SendToEmail { get; set; }
 
+        [Required]
         public TransportRFQ TransportRFQ { get; set; }
 
         [Required]

@@ -14,12 +14,11 @@ namespace TOPMS.Models
         {
 
         }
-        [Required]
+
         public string CompanyId { get; set; }
 
         public Company Company { get; set; }
 
-        [Required]
         public string AreaOfServiceId { get; set; }
 
         public AreaOfService AreaOfService { get; set; }

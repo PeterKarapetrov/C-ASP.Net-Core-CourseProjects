@@ -14,7 +14,6 @@ namespace TOPMS.Models
 
         public string Id { get; set; }
 
-        [Required]
         [ForeignKey("AppUser")]
         public string AppUserId { get; set; }
 
@@ -28,9 +27,12 @@ namespace TOPMS.Models
         [Required]
         public Company From { get; set; }
 
+        [Required]
         public Company To { get; set; }
 
         public string MaterialId { get; set; }
+
+        [Required]
         public Material Material { get; set; }
 
         [Required]
@@ -45,13 +47,11 @@ namespace TOPMS.Models
         [RegularExpression(@"[a-zA-Z0-9/-.,]", ErrorMessage = "Please use /-., numbers and latin alphabet letters only")]
         public string Volume { get; set; }
 
-        [Required]
         public string TransportId { get; set; }
 
         [Required]
         public Transport Transport { get; set; }
 
-        [Required]
         public string ServiceId { get; set; }
 
         [Required]
@@ -65,7 +65,6 @@ namespace TOPMS.Models
         [DataType(DataType.Date)]
         public DateTime RequestDeliveryDate { get; set; }
 
-        [Required]
         public string StatusId { get; set; }
 
         [Required]
@@ -75,19 +74,14 @@ namespace TOPMS.Models
         [RegularExpression(@"[a-zA-Z0-9/-.,]", ErrorMessage = "Please use /-., numbers and latin alphabet letters only")]
         public string SpecialRequirements { get; set; }
 
-        [Required]
         public ICollection<Offer> Offers { get; set; }
 
-        [Required]
         public string OrderId { get; set; }
 
-        [Required]
         public Order Order { get; set; }
 
-        [Required]
         public string InsuranceId { get; set; }
 
-        [Required]
         public Insurance Insurance { get; set; }
 
     }

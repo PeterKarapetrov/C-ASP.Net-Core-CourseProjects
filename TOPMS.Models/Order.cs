@@ -9,7 +9,6 @@ namespace TOPMS.Models
     {
         public string Id { get; set; }
 
-        [Required]
         [ForeignKey("AppUser")]
         public string AppUserId { get; set; }
 
