@@ -34,8 +34,6 @@ namespace TOPMS.Pages.CompanyAreaOfService
                 return NotFound();
             }
 
-            _companyAreaOfServiceService.DeleteCompanyAreaOfServices(id);
-            _context.SaveChanges();
             AreaOfServices = _areaOfServiceService.GetAllAreaOfService();
 
             return Page();
@@ -43,6 +41,9 @@ namespace TOPMS.Pages.CompanyAreaOfService
 
         [BindProperty]
         public IList<Models.AreaOfService> AreaOfServices { get; set; }
+
+        [BindProperty]
+        public IList<string> AreChecked { get; set; }
 
         public async Task<IActionResult> OnPostAsync(string id)
         {
@@ -63,9 +64,9 @@ namespace TOPMS.Pages.CompanyAreaOfService
                 return NotFound();
             }
 
-            var areasNamesList = Request.Form["item.IsChecked"].ToList();
-            var areasIdsList = Request.Form["item.Id"].ToList();
-            _companyAreaOfServiceService.AddAreaOfService(areasNamesList, areasIdsList, id);
+
+            _companyAreaOfServiceService.DeleteCompanyAreaOfServices(id);
+            _companyAreaOfServiceService.AddAreaOfService(AreChecked.ToList(), id);
 
             await _context.SaveChangesAsync();
 

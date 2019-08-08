@@ -92,100 +92,100 @@ namespace TOPMS.Data
                 .WithMany(c => c.AppUsers)
                 .OnDelete(DeleteBehavior.SetNull);
 
-            modelBuilder.Entity<AppUser>()
-                .HasMany(u => u.TransportRFQs)
-                .WithOne(t => t.AppUser)
-                .OnDelete(DeleteBehavior.Restrict);
+            //modelBuilder.Entity<AppUser>()
+            //    .HasMany(u => u.TransportRFQs)
+            //    .WithOne(t => t.AppUser)
+            //    .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<AppUser>()
-                .HasMany(u => u.Offers)
-                .WithOne(o => o.AppUser)
-                .OnDelete(DeleteBehavior.Restrict);
+            //modelBuilder.Entity<AppUser>()
+            //    .HasMany(u => u.Offers)
+            //    .WithOne(o => o.AppUser)
+            //    .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<AppUser>()
-                .HasMany(u => u.Orders)
-                .WithOne(o => o.AppUser)
-                .OnDelete(DeleteBehavior.Restrict);
+            //modelBuilder.Entity<AppUser>()
+            //    .HasMany(u => u.Orders)
+            //    .WithOne(o => o.AppUser)
+            //    .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<AppUser>()
-                .HasMany(u => u.Insurances)
-                .WithOne(i => i.AppUser)
-                .OnDelete(DeleteBehavior.Restrict);
+            //modelBuilder.Entity<AppUser>()
+            //    .HasMany(u => u.Insurances)
+            //    .WithOne(i => i.AppUser)
+            //    .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<AreaOfService>()
-                .HasMany(a => a.CompanyAreaOfServices)
-                .WithOne(c => c.AreaOfService)
-                .OnDelete(DeleteBehavior.Restrict);
+            //modelBuilder.Entity<AreaOfService>()
+            //    .HasMany(a => a.CompanyAreaOfServices)
+            //    .WithOne(c => c.AreaOfService)
+            //    .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Company>()
-                .HasMany(a => a.CompanyAreaOfServices)
-                .WithOne(c => c.Company)
-                .OnDelete(DeleteBehavior.Restrict);
+            //modelBuilder.Entity<Company>()
+            //    .HasMany(a => a.CompanyAreaOfServices)
+            //    .WithOne(c => c.Company)
+            //    .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Company>()
-                .HasMany(c => c.CompanyTransports)
-                .WithOne(t => t.Company)
-                .OnDelete(DeleteBehavior.Restrict);
+            //modelBuilder.Entity<Company>()
+            //    .HasMany(c => c.CompanyTransports)
+            //    .WithOne(t => t.Company)
+            //    .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Company>()
-                .HasMany(c => c.CompanyServices)
-                .WithOne(s => s.Company)
-                .OnDelete(DeleteBehavior.Restrict);
+            //modelBuilder.Entity<Company>()
+            //    .HasMany(c => c.CompanyServices)
+            //    .WithOne(s => s.Company)
+            //    .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Company>()
-                .HasMany(c => c.Loadings)
-                .WithOne(l => l.From)
-                .OnDelete(DeleteBehavior.Restrict);
+            //modelBuilder.Entity<Company>()
+            //    .HasMany(c => c.Loadings)
+            //    .WithOne(l => l.From)
+            //    .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Company>()
-                .HasMany(c => c.Deliveries)
-                .WithOne(d => d.To)
-                .OnDelete(DeleteBehavior.Restrict);
+            //modelBuilder.Entity<Company>()
+            //    .HasMany(c => c.Deliveries)
+            //    .WithOne(d => d.To)
+            //    .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Service>()
-                .HasMany(s => s.CompanyServices)
-                .WithOne(c => c.Service)
-                .OnDelete(DeleteBehavior.Restrict);
+            //modelBuilder.Entity<Service>()
+            //    .HasMany(s => s.CompanyServices)
+            //    .WithOne(c => c.Service)
+            //    .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Transport>()
-                .HasMany(t => t.CompanyTransports)
-                .WithOne(c => c.Transport)
-                .OnDelete(DeleteBehavior.Restrict);
+            //modelBuilder.Entity<Transport>()
+            //    .HasMany(t => t.CompanyTransports)
+            //    .WithOne(c => c.Transport)
+            //    .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Transport>()
-               .HasMany(t => t.TransportRFQs)
-               .WithOne(tr => tr.Transport)
-               .OnDelete(DeleteBehavior.Restrict);
+            //modelBuilder.Entity<Transport>()
+            //   .HasMany(t => t.TransportRFQs)
+            //   .WithOne(tr => tr.Transport)
+            //   .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Material>()
-                .HasMany(u => u.TransportRFQs)
-                .WithOne(m => m.Material)
-                .OnDelete(DeleteBehavior.Restrict);
+            //modelBuilder.Entity<Material>()
+            //    .HasMany(u => u.TransportRFQs)
+            //    .WithOne(m => m.Material)
+            //    .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Insurance>()
-                .HasOne(i => i.TransportRFQ)
-                .WithOne(t => t.Insurance)
-                .OnDelete(DeleteBehavior.Restrict);
+            //modelBuilder.Entity<Insurance>()
+            //    .HasOne(i => i.TransportRFQ)
+            //    .WithOne(t => t.Insurance)
+            //    .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Service>()
-                .HasMany(s => s.TransportRFQs)
-                .WithOne(t => t.Service)
-                .OnDelete(DeleteBehavior.Restrict);
+            //modelBuilder.Entity<Service>()
+            //    .HasMany(s => s.TransportRFQs)
+            //    .WithOne(t => t.Service)
+            //    .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Status>()
-                .HasMany(s => s.TransportRFQs)
-                .WithOne(t => t.Status)
-                .OnDelete(DeleteBehavior.Restrict);
+            //modelBuilder.Entity<Status>()
+            //    .HasMany(s => s.TransportRFQs)
+            //    .WithOne(t => t.Status)
+            //    .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Offer>()
-                .HasOne(o => o.TransportRFQ)
-                .WithMany(t => t.Offers)
-                .OnDelete(DeleteBehavior.Restrict);
+            //modelBuilder.Entity<Offer>()
+            //    .HasOne(o => o.TransportRFQ)
+            //    .WithMany(t => t.Offers)
+            //    .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Order>()
-                .HasOne(o => o.TransportRFQ)
-                .WithOne(t => t.Order)
-                .OnDelete(DeleteBehavior.Restrict);
+            //modelBuilder.Entity<Order>()
+            //    .HasOne(o => o.TransportRFQ)
+            //    .WithOne(t => t.Order)
+            //    .OnDelete(DeleteBehavior.Restrict);
 
             base.OnModelCreating(modelBuilder);
         }

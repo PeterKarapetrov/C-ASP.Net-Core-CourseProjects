@@ -15,10 +15,6 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="TransportRFQ.AppUserId" class="control-label"></label>
-                <select asp-for="TransportRFQ.AppUserId" class ="form-control" asp-items="ViewBag.AppUserId"></select>
-            </div>
-            <div class="form-group">
                 <label asp-for="TransportRFQ.AppUser.UserName" class="control-label"></label>
                 <input asp-for="TransportRFQ.AppUser.UserName" class="form-control" value="@this.User.Identity.Name"/>
                 <span asp-validation-for="TransportRFQ.NumberOfPackages" class="text-danger"></span>

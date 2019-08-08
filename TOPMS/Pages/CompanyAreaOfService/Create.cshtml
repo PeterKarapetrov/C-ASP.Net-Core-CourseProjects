@@ -27,7 +27,7 @@
                     {
                         <tr>
                             <td>
-                                <input asp-for="@item.IsChecked" type="checkbox" />
+                                <input name="AreChecked" type="checkbox" value="@item.Id" />
                                 <label asp-for="@item.Name">@item.Name</label>
                                 <input asp-for="@item.Id" type="hidden" />
                                 <input asp-for="@item.Name" type="hidden" />
@@ -44,7 +44,7 @@
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-page="/Company/Index">Back to List</a>
 </div>
 
 @section Scripts {

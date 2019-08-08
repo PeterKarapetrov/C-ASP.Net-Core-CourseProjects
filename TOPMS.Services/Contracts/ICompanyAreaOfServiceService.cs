@@ -6,7 +6,7 @@ namespace TOPMS.Services.Contracts
 {
     public interface ICompanyAreaOfServiceService
     {
-        void AddAreaOfService(List<string> areasNameList, List<string> areasIdList, string companyId);
+        void AddAreaOfService(List<string> areasIdList, string companyId);
 
         IList<Models.CompanyAreaOfService> GetCompanyAreaOfServices(string companyId);
 

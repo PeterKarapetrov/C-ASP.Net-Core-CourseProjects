@@ -17,15 +17,12 @@ namespace TOPMS.Services
             _context = context;
         }
 
-        public void AddAreaOfService(List<string> areasNameList, List<string> areasIdsList, string companyId)
+        public void AddAreaOfService(List<string> areasIdsList, string companyId)
         {
             for (int i = 0; i < areasIdsList.Count; i++)
             {
-                if (areasNameList[i] == "true")
-                {
-                    var companyAreaOfService = new Models.CompanyAreaOfService(companyId, areasIdsList[i]);
-                    _context.CompanyAreaOfServices.Add(companyAreaOfService);
-                }
+                var companyAreaOfService = new Models.CompanyAreaOfService(companyId, areasIdsList[i]);
+                _context.CompanyAreaOfServices.Add(companyAreaOfService);
             }
         }
 

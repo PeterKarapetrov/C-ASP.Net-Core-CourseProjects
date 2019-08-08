@@ -17,15 +17,12 @@ namespace TOPMS.Services
             _context = context;
         }
 
-        public void AddCompanyTransport(List<string> transportNameList, List<string> transportIdList, string companyId)
+        public void AddCompanyTransport(List<string> transportIdList, string companyId)
         {
             for (int i = 0; i < transportIdList.Count; i++)
             {
-                if (transportNameList[i] == "true")
-                {
-                    var companyTransport = new CompanyTransport(companyId, transportIdList[i]);
-                    _context.CompanyTransports.Add(companyTransport);
-                }
+                var companyTransport = new CompanyTransport(companyId, transportIdList[i]);
+                _context.CompanyTransports.Add(companyTransport);
             }
         }
 

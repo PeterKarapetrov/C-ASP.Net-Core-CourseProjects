@@ -17,44 +17,38 @@ namespace TOPMS.Models
         [ForeignKey("AppUser")]
         public string AppUserId { get; set; }
 
-        [Required]
         public AppUser AppUser { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
         public DateTime Date { get; set; } = DateTime.UtcNow;
 
-        [Required]
         public Company From { get; set; }
 
-        [Required]
         public Company To { get; set; }
 
         public string MaterialId { get; set; }
 
-        [Required]
         public Material Material { get; set; }
 
         [Required]
-        [RegularExpression(@"[0-9]", ErrorMessage = "Please use numbers only")]
+        [RegularExpression(@"[0-9]*", ErrorMessage = "Please use numbers only")]
         public int NumberOfPackages { get; set; }
 
         [Required]
-        [RegularExpression(@"[a-zA-Z0-9/-.,]", ErrorMessage = "Please use /-., numbers and latin alphabet letters only")]
+        [RegularExpression(@"[a-zA-z0-9\s-_\.,\\]*", ErrorMessage = "Please use numbers, latin alphabet letters, space, dot, dush and comma only")]
         public string PackageDimention { get; set; }
 
         [Required]
-        [RegularExpression(@"[a-zA-Z0-9/-.,]", ErrorMessage = "Please use /-., numbers and latin alphabet letters only")]
-        public string Volume { get; set; }
+        [RegularExpression(@"[0-9\.]*", ErrorMessage = "Please use numbers and dot only")]
+        public double Volume { get; set; }
 
         public string TransportId { get; set; }
 
-        [Required]
         public Transport Transport { get; set; }
 
         public string ServiceId { get; set; }
 
-        [Required]
         public Service Service { get; set; }
 
         [Required]
@@ -67,11 +61,10 @@ namespace TOPMS.Models
 
         public string StatusId { get; set; }
 
-        [Required]
         public Status Status { get; set; }
 
         [Required]
-        [RegularExpression(@"[a-zA-Z0-9/-.,]", ErrorMessage = "Please use /-., numbers and latin alphabet letters only")]
+        [RegularExpression(@"[a-zA-z0-9\s-_\.,\\]*", ErrorMessage = "Please use numbers, latin alphabet letters, space, dot, dush and comma only")]
         public string SpecialRequirements { get; set; }
 
         public ICollection<Offer> Offers { get; set; }

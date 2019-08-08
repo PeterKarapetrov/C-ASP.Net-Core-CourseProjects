@@ -17,7 +17,7 @@ namespace TOPMS.Models
         public string Id { get; set; }
 
         [Required]
-        [RegularExpression(@"[a-zA-Z0-9]", ErrorMessage = "Please use and latin alphabet letters only")]
+        [RegularExpression(@"[a-zA-Z]*", ErrorMessage = "Please use and latin alphabet letters only")]
         public string Name { get; set; }
 
         [NotMapped]

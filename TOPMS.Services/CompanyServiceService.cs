@@ -16,15 +16,12 @@ namespace TOPMS.Services
             _context = context;
         }
 
-        public void AddCompanyService(List<string> serviceNamesList, List<string> serviceIdsList, string companyId)
+        public void AddCompanyService(List<string> serviceIdsList, string companyId)
         {
             for (int i = 0; i < serviceIdsList.Count; i++)
             {
-                if (serviceNamesList[i] == "true")
-                {
-                    var companyService = new Models.CompanyService(companyId, serviceIdsList[i]);
-                    _context.CompanyServices.Add(companyService);
-                }
+                var companyService = new Models.CompanyService(companyId, serviceIdsList[i]);
+                _context.CompanyServices.Add(companyService);
             }
         }
 

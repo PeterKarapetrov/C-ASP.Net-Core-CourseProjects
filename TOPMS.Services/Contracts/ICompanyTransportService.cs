@@ -6,7 +6,7 @@ namespace TOPMS.Services.Contracts
 {
     public interface ICompanyTransportService
     {
-        void AddCompanyTransport(List<string> transportNameList, List<string> transportIdList, string companyId);
+        void AddCompanyTransport(List<string> transportIdList, string companyId);
 
         IList<Models.CompanyTransport> GetCompanyTransports(string companyId);
 

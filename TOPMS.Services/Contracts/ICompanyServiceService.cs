@@ -7,7 +7,7 @@ namespace TOPMS.Services.Contracts
 {
     public interface ICompanyServiceService
     {
-        void AddCompanyService(List<string> serviceNameList, List<string> serviceIdList, string companyId);
+        void AddCompanyService(List<string> serviceIdList, string companyId);
 
         IList<Models.CompanyService> GetCompanyServices(string companyId);
 

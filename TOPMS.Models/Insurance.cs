@@ -12,14 +12,12 @@ namespace TOPMS.Models
         [ForeignKey("AppUser")]
         public string AppUserId { get; set; }
 
-        [Required]
         public AppUser AppUser { get; set; }
 
         [Required]
         [EmailAddress]
         public string SendToEmail { get; set; }
 
-        [Required]
         public TransportRFQ TransportRFQ { get; set; }
 
         [Required]
@@ -29,7 +27,7 @@ namespace TOPMS.Models
         public Currency Currency { get; set; }
 
         [Required]
-        [RegularExpression(@"[a-zA-Z0-9]", ErrorMessage = "Please use numbers and latin alphabet letters only")]
+        [RegularExpression(@"[a-zA-Z0-9\s\.-_\\,]*", ErrorMessage = "Please use numbers, latin alphabet letters, space, dash and comma only")]
         public string Comments { get; set; }
     }
 }

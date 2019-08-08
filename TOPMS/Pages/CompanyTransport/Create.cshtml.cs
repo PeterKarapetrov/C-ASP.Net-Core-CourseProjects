@@ -36,8 +36,6 @@ namespace TOPMS.Pages.CompanyTransport
                 return NotFound();
             }
 
-            _companyTranportService.DeleteCompanyTransports(id);
-            _context.SaveChanges();
             Transports = _transportService.GetAllTransports();
 
             return Page();
@@ -45,6 +43,9 @@ namespace TOPMS.Pages.CompanyTransport
 
         [BindProperty]
         public IList<Models.Transport> Transports { get; set; }
+
+        [BindProperty]
+        public IList<string> AreChecked { get; set; }
 
         public async Task<IActionResult> OnPostAsync(string id)
         {
@@ -65,9 +66,8 @@ namespace TOPMS.Pages.CompanyTransport
                 return NotFound();
             }
 
-            var transportNamesList = Request.Form["item.IsChecked"].ToList();
-            var transportIdsList = Request.Form["item.Id"].ToList();
-            _companyTranportService.AddCompanyTransport(transportNamesList, transportIdsList, id);
+            _companyTranportService.DeleteCompanyTransports(id);
+            _companyTranportService.AddCompanyTransport(AreChecked.ToList(), id);
 
             await _context.SaveChangesAsync();
 

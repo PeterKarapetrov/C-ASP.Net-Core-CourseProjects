@@ -45,6 +45,11 @@ namespace TOPMS.Pages.Company
                 return Page();
             }
 
+            if (User.IsInRole("Forwarder"))
+            {
+                Company.CompanyType = Enum.Parse<CompanyType>("Forwarder");
+            }
+
             _context.Attach(Company).State = EntityState.Modified;
 
             try

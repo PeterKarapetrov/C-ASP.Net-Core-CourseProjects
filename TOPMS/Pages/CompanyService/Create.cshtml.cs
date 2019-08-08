@@ -36,8 +36,6 @@ namespace TOPMS.Pages.CompanyService
                 return NotFound();
             }
 
-            _companyServiceService.DeleteCompanyAllServices(id);
-            _context.SaveChanges();
             Services = _serviceService.GetAllServices();
 
             return Page();
@@ -45,6 +43,10 @@ namespace TOPMS.Pages.CompanyService
 
         [BindProperty]
         public IList<Models.Service> Services { get; set; }
+
+        [BindProperty]
+        public IList<string> AreChecked { get; set; }
+
 
         public async Task<IActionResult> OnPostAsync(string id)
         {
@@ -65,9 +67,8 @@ namespace TOPMS.Pages.CompanyService
                 return NotFound();
             }
 
-            var serviceNamesList = Request.Form["item.IsChecked"].ToList();
-            var serviceIdsList = Request.Form["item.Id"].ToList();
-            _companyServiceService.AddCompanyService(serviceNamesList, serviceIdsList, id);
+            _companyServiceService.DeleteCompanyAllServices(id);
+            _companyServiceService.AddCompanyService(AreChecked.ToList(), id);
 
             await _context.SaveChangesAsync();
 

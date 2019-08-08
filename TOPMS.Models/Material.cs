@@ -17,11 +17,11 @@ namespace TOPMS.Models
         public string Id { get; set; }
 
         [Required]
-        [RegularExpression(@"[a-zA-Z0-9]", ErrorMessage = "Please use numbers and latin alphabet letters only")]
+        [RegularExpression(@"[0-9]*", ErrorMessage = "Please use numbers only")]
         public string MaterialCode { get; set; }
 
         [Required]
-        [RegularExpression(@"[a-zA-Z0-9]", ErrorMessage = "Please use numbers and latin alphabet letters only")]
+        [RegularExpression(@"[a-zA-z0-9\s-_\.,]*", ErrorMessage = "Please use numbers, latin alphabet letters, space, dot, dush and comma only")]
         public string Name { get; set; }
 
         [Required]

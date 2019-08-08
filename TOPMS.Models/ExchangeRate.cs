@@ -17,7 +17,7 @@ namespace TOPMS.Models
         public string Id { get; set; }
 
         [Required]
-        [RegularExpression(@"[a-zA-Z0-9]", ErrorMessage = "Please use numbers and latin alphabet letters only")]
+        [RegularExpression(@"[a-zA-Z0-9\s\.-_\\,]*", ErrorMessage = "Please use numbers, latin alphabet letters, space, dash and comma only")]
         public string ValidForMonth { get; set; }
 
         [Required]
@@ -39,7 +39,7 @@ namespace TOPMS.Models
         public decimal ConvertRate { get; set; }
 
         [Required]
-        [RegularExpression(@"[a-zA-Z0-9]", ErrorMessage = "Please use numbers and latin alphabet letters only")]
+        [RegularExpression(@"[a-zA-Z0-9\s\.-_\\,]*", ErrorMessage = "Please use numbers, latin alphabet letters, space, dash and comma only")]
         public string Comments { get; set; }
     }
 }

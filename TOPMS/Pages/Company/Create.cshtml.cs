@@ -48,6 +48,11 @@ namespace TOPMS.Pages.Company
 
             var companyType = Enum.GetName(typeof(CompanyType), Company.CompanyType);
 
+            if (User.IsInRole("Forwarder"))
+            {
+                companyType = "Forwarder";
+            }
+
             if (companyType == "Forwarder") // TODO change magic string
             {
                 return Redirect($"/CompanyTransport/Create?id={Company.Id}");

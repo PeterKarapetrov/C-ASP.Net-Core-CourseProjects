@@ -16,7 +16,7 @@
             <input type="hidden" asp-for="Company.Id" />
             <div class="form-group">
                 <label asp-for="Company.CompanyType" class="control-label"></label>
-                <input asp-for="Company.CompanyType" class="form-control" disabled/>
+                <input asp-for="Company.CompanyType" class="form-control" readonly="readonly"/>
                 <span asp-validation-for="Company.CompanyType" class="text-danger"></span>
             </div>
             <div class="form-group">
