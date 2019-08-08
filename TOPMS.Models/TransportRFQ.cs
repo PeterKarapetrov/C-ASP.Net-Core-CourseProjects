@@ -10,6 +10,7 @@ namespace TOPMS.Models
         public TransportRFQ()
         {
             this.Offers = new List<Offer>();
+            this.Date = DateTime.UtcNow.Date;
         }
 
         public string Id { get; set; }
@@ -21,7 +22,7 @@ namespace TOPMS.Models
 
         [Required]
         [DataType(DataType.Date)]
-        public DateTime Date { get; set; } = DateTime.UtcNow;
+        public DateTime Date { get; set; }
 
         public Company From { get; set; }
 

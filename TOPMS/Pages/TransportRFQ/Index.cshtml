@@ -15,13 +15,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.TransportRFQ[0].AppUser)
+                @Html.DisplayNameFor(model => model.TransportRFQ[0].AppUser.UserName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.TransportRFQ[0].Date)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TransportRFQ[0].Material)
+                @Html.DisplayNameFor(model => model.TransportRFQ[0].Material.Name)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.TransportRFQ[0].NumberOfPackages)
@@ -33,10 +33,10 @@
                 @Html.DisplayNameFor(model => model.TransportRFQ[0].Volume)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TransportRFQ[0].Transport)
+                @Html.DisplayNameFor(model => model.TransportRFQ[0].Transport.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TransportRFQ[0].Service)
+                @Html.DisplayNameFor(model => model.TransportRFQ[0].Service.Name)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.TransportRFQ[0].ShipmentReadyDate)
@@ -45,7 +45,7 @@
                 @Html.DisplayNameFor(model => model.TransportRFQ[0].RequestDeliveryDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TransportRFQ[0].Status)
+                @Html.DisplayNameFor(model => model.TransportRFQ[0].Status.Name)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.TransportRFQ[0].SpecialRequirements)
@@ -63,13 +63,13 @@
 @foreach (var item in Model.TransportRFQ) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.AppUser.Id)
+                @Html.DisplayFor(modelItem => item.AppUser.UserName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Material.Id)
+                @Html.DisplayFor(modelItem => item.Material.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.NumberOfPackages)
@@ -81,10 +81,10 @@
                 @Html.DisplayFor(modelItem => item.Volume)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Transport.Id)
+                @Html.DisplayFor(modelItem => item.Transport.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Service.Id)
+                @Html.DisplayFor(modelItem => item.Service.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ShipmentReadyDate)
@@ -93,7 +93,7 @@
                 @Html.DisplayFor(modelItem => item.RequestDeliveryDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Status.Id)
+                @Html.DisplayFor(modelItem => item.Status.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SpecialRequirements)

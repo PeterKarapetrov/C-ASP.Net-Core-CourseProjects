@@ -37,7 +37,6 @@ namespace TOPMS
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddDbContext<TOPMSContext>(options =>
@@ -57,10 +56,9 @@ namespace TOPMS
             services.AddTransient<ITransportService, TransportService>();
             services.AddTransient<ICompanyTransportService, CompanyTransportService>();
             services.AddTransient<ICompanyAreaOfServiceService, CompanyAreaOfServiceService>();
+            services.AddTransient<ITransportRFQService, TransportRFQService>();
 
             //services.AddSingleton<IEmailSender, EmailSender>();
-
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
