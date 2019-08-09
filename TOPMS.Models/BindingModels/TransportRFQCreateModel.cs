@@ -8,6 +8,8 @@ namespace TOPMS.BindimgModels
 {
     public class TransportRFQCreateModel
     {
+        public string Id { get; set; }
+
         [Required]
         public string UserName { get; set; }
 
@@ -37,6 +39,9 @@ namespace TOPMS.BindimgModels
         public double Volume { get; set; }
 
         [Required]
+        public double Weight { get; set; }
+
+        [Required]
         public string TransportRequired { get; set; }
 
         [Required]
@@ -52,5 +57,11 @@ namespace TOPMS.BindimgModels
         public string Status { get; set; }
        
         public string SpecialRequirements { get; set; }
+
+        public string OrderId { get; set; }
+
+        public string InsuranceId { get; set; }
+
+        public int Offers { get; set; }
     }
 }

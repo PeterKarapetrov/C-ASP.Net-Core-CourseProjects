@@ -13,10 +13,10 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TransportRFQ.AppUser)
+            @Html.DisplayNameFor(model => model.TransportRFQ.AppUser.UserName)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TransportRFQ.AppUser.Id)
+            @Html.DisplayFor(model => model.TransportRFQ.AppUser.UserName)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.TransportRFQ.Date)
@@ -25,16 +25,22 @@
             @Html.DisplayFor(model => model.TransportRFQ.Date)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TransportRFQ.Material)
+            @Html.DisplayNameFor(model => model.TransportRFQ.Material.Name)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TransportRFQ.Material.Id)
+            @Html.DisplayFor(model => model.TransportRFQ.Material.Name)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.TransportRFQ.NumberOfPackages)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.TransportRFQ.NumberOfPackages)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransportRFQ.Packaging)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransportRFQ.Packaging)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.TransportRFQ.PackageDimention)
@@ -49,16 +55,22 @@
             @Html.DisplayFor(model => model.TransportRFQ.Volume)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TransportRFQ.Transport)
+            @Html.DisplayNameFor(model => model.TransportRFQ.Weight)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TransportRFQ.Transport.Id)
+            @Html.DisplayFor(model => model.TransportRFQ.Weight)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TransportRFQ.Service)
+            @Html.DisplayNameFor(model => model.TransportRFQ.Transport.Name)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TransportRFQ.Service.Id)
+            @Html.DisplayFor(model => model.TransportRFQ.Transport.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransportRFQ.Service.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransportRFQ.Service.Name)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.TransportRFQ.ShipmentReadyDate)
@@ -73,10 +85,10 @@
             @Html.DisplayFor(model => model.TransportRFQ.RequestDeliveryDate)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TransportRFQ.Status)
+            @Html.DisplayNameFor(model => model.TransportRFQ.Status.Name)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TransportRFQ.Status.Id)
+            @Html.DisplayFor(model => model.TransportRFQ.Status.Name)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.TransportRFQ.SpecialRequirements)

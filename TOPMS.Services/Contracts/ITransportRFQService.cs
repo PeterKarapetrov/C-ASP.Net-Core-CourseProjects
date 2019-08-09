@@ -8,5 +8,9 @@ namespace TOPMS.Services.Contracts
         TransportRFQ CreateNewRFQFromModel(TransportRFQCreateModel TransportRFQ);
 
         void AddTransportRFQ(TransportRFQ transportRFQ);
+
+        TransportRFQ GetTransportRFQ(string id);
+        void EditTransportRFQ(TransportRFQCreateModel transportRFQModel, string id);
+        TransportRFQCreateModel CreateModelFrom(string id);
     }
 }

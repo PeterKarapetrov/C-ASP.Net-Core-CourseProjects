@@ -92,6 +92,31 @@ namespace TOPMS.Data
                 .WithMany(c => c.AppUsers)
                 .OnDelete(DeleteBehavior.SetNull);
 
+            modelBuilder.Entity<TransportRFQ>()
+                .HasOne(u => u.Material)
+                .WithMany(c => c.TransportRFQs)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<TransportRFQ>()
+               .HasOne(u => u.Transport)
+               .WithMany(c => c.TransportRFQs)
+               .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<TransportRFQ>()
+               .HasOne(u => u.Service)
+               .WithMany(c => c.TransportRFQs)
+               .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<TransportRFQ>()
+               .HasOne(u => u.Status)
+               .WithMany(c => c.TransportRFQs)
+               .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<TransportRFQ>()
+               .HasOne(u => u.AppUser)
+               .WithMany(c => c.TransportRFQs)
+               .OnDelete(DeleteBehavior.SetNull);
+
             //modelBuilder.Entity<AppUser>()
             //    .HasMany(u => u.TransportRFQs)
             //    .WithOne(t => t.AppUser)

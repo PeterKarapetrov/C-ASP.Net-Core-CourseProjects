@@ -11,6 +11,5 @@ namespace TOPMS.Services.Contracts
         void SeedServices(string servicesString);
         void SeedStatuses(string statusesString);
         void SeedRoles(string rolesAndDescrString);
-
     }
 }

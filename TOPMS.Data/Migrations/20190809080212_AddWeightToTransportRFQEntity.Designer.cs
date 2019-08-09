@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TOPMS.Data;
 
 namespace TOPMS.Migrations
 {
     [DbContext(typeof(TOPMSContext))]
-    partial class TOPMSContextModelSnapshot : ModelSnapshot
+    [Migration("20190809080212_AddWeightToTransportRFQEntity")]
+    partial class AddWeightToTransportRFQEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -644,8 +646,7 @@ namespace TOPMS.Migrations
                 {
                     b.HasOne("TOPMS.Models.AppUser", "AppUser")
                         .WithMany("TransportRFQs")
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .HasForeignKey("AppUserId");
 
                     b.HasOne("TOPMS.Models.Company", "From")
                         .WithMany("Loadings")
@@ -666,13 +667,11 @@ namespace TOPMS.Migrations
 
                     b.HasOne("TOPMS.Models.Service", "Service")
                         .WithMany("TransportRFQs")
-                        .HasForeignKey("ServiceId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .HasForeignKey("ServiceId");
 
                     b.HasOne("TOPMS.Models.Status", "Status")
                         .WithMany("TransportRFQs")
-                        .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .HasForeignKey("StatusId");
 
                     b.HasOne("TOPMS.Models.Company", "To")
                         .WithMany("Deliveries")
@@ -680,8 +679,7 @@ namespace TOPMS.Migrations
 
                     b.HasOne("TOPMS.Models.Transport", "Transport")
                         .WithMany("TransportRFQs")
-                        .HasForeignKey("TransportId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .HasForeignKey("TransportId");
                 });
 #pragma warning restore 612, 618
         }

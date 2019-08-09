@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -13,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using TOPMS.Data;
 using TOPMS.Models;
 using TOPMS.Services;
+using TOPMS.Services.Common;
 using TOPMS.Services.Contracts;
 using CompanyService = TOPMS.Services.CompanyService;
 
@@ -69,17 +68,11 @@ namespace TOPMS
             {
                 app.UseDeveloperExceptionPage();
 
-                var strConst = "";
-
-                seedService.SeedAreas(strConst);
-
-                seedService.SeedServices(strConst);
-
-                seedService.SeedStatuses(strConst);
-
-                seedService.SeedTransports(strConst);
-
-                seedService.SeedRoles(strConst);
+                seedService.SeedAreas(GlobalConstants.AreasString);
+                seedService.SeedServices(GlobalConstants.ServicesString);
+                seedService.SeedStatuses(GlobalConstants.StatusesString);
+                seedService.SeedTransports(GlobalConstants.TransportsString);
+                seedService.SeedRoles(GlobalConstants.UserRolesString);
             }
             else
             {
@@ -99,11 +92,6 @@ namespace TOPMS
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-
-
         }
-
-
-
     }
 }

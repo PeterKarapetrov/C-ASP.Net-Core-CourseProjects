@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using TOPMS.Enums;
 
 namespace TOPMS.Models
 {
@@ -33,16 +34,25 @@ namespace TOPMS.Models
         public Material Material { get; set; }
 
         [Required]
+        public Packaging Packaging { get; set; }
+
+        [Required]
         [RegularExpression(@"[0-9]*", ErrorMessage = "Please use numbers only")]
+        [Display(Name ="Qty")]
         public int NumberOfPackages { get; set; }
 
         [Required]
         [RegularExpression(@"[a-zA-z0-9\s-_\.,\\]*", ErrorMessage = "Please use numbers, latin alphabet letters, space, dot, dush and comma only")]
+        [Display(Name = "PackSize")]
         public string PackageDimention { get; set; }
 
         [Required]
         [RegularExpression(@"[0-9\.]*", ErrorMessage = "Please use numbers and dot only")]
         public double Volume { get; set; }
+
+        [Required]
+        [Range(1, 100000)]
+        public double Weight { get; set; }
 
         public string TransportId { get; set; }
 
@@ -54,10 +64,12 @@ namespace TOPMS.Models
 
         [Required]
         [DataType(DataType.Date)]
+        [Display(Name = "SRD")]
         public DateTime ShipmentReadyDate { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
+        [Display(Name = "RDD")]
         public DateTime RequestDeliveryDate { get; set; }
 
         public string StatusId { get; set; }

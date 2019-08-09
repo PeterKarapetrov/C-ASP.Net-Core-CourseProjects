@@ -14,6 +14,7 @@ namespace TOPMS.Models
 
         [Required]
         [RegularExpression(@"[a-zA-Z]*", ErrorMessage = "Please use and latin alphabet letters only")]
+        [Display(Name = "Status")]
         public string Name { get; set; }
 
         public ICollection<TransportRFQ> TransportRFQs {get; set;}

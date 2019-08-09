@@ -22,6 +22,7 @@ namespace TOPMS.Models
 
         [Required]
         [RegularExpression(@"[a-zA-z0-9\s-_\.,]*", ErrorMessage = "Please use numbers, latin alphabet letters, space, dot, dush and comma only")]
+        [Display(Name = "Material")]
         public string Name { get; set; }
 
         [Required]
