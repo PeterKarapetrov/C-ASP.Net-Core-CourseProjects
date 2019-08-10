@@ -6,40 +6,45 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using TOPMS.Data;
+using TOPMS.Models.BindingModels.Offers;
+using TOPMS.Services.Contracts;
 
 namespace TOPMS.Pages.Offer
 {
     public class CreateModel : PageModel
     {
         private readonly TOPMSContext _context;
+        private readonly IOfferService _offerService;
 
-        public CreateModel(TOPMSContext context)
+        public CreateModel(TOPMSContext context, IOfferService offerService)
         {
             _context = context;
+            _offerService = offerService;
         }
 
-        public IActionResult OnGet()
+        public IActionResult OnGet(string id)
         {
-        
-        ViewData["TransportRFQId"] = "Gosho"/*new SelectList(_context.TransportRFQs, "Id", "Id")*/;
-        ViewData["UserId"] = "Pesho"/*new SelectList(_context.AppUsers, "Id", "Id")*/;
-        ViewData["Date"] = DateTime.UtcNow.Date;
-        ViewData["ValidTill"] = DateTime.UtcNow.Date.AddDays(14);
+            ViewData["LoadingAddress"] = _offerService.GetLoadingAddress(id);
+            ViewData["DeliveryAddress"] = _offerService.GetDeliveryAddress(id);
+            ViewData["ShipmentReadyDate"] = _offerService.GetShipmentReadyDate(id);
+            ViewData["RequestDeliveryDate"] = _offerService.GetRequestDeliveryDate(id);
+
             return Page();
         }
 
         [BindProperty]
-        public Models.Offer Offer { get; set; }
+        public OfferViewModel OfferModel { get; set; }
 
-        public async Task<IActionResult> OnPostAsync()
+        public IActionResult OnPost(string id)
         {
+            var userName = User.Identity.Name;
+
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            _context.Offers.Add(Offer);
-            await _context.SaveChangesAsync();
+            _offerService.AddOffer(OfferModel, id, userName);
 
             return RedirectToPage("./Index");
         }

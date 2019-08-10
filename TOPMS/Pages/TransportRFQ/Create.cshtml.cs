@@ -36,16 +36,14 @@ namespace TOPMS.Pages.TransportRFQ
         [BindProperty]
         public TransportRFQCreateModel TransportRFQModel { get; set; }
 
-        public async Task<IActionResult> OnPostAsync()
+        public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            var newRFQ = _transportRFQService.CreateNewRFQFromModel(TransportRFQModel);
-            _transportRFQService.AddTransportRFQ(newRFQ);
-            await _context.SaveChangesAsync();
+            _transportRFQService.AddTransportRFQ(TransportRFQModel);
 
             return RedirectToPage("./Index");
         }

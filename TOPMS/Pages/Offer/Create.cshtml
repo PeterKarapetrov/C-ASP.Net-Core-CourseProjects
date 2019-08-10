@@ -15,50 +15,56 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Offer.AppUser.UserName" class="control-label"></label>
-                <input asp-for="Offer.AppUser.UserName" value=@User.Identity.Name disabled class="form-control" />
+                <label asp-for="OfferModel.AppUser.UserName" class="control-label"></label>
+                <input asp-for="OfferModel.AppUser.UserName" value=@User.Identity.Name disabled class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Offer.Date" class="control-label"></label>
-                <input asp-for="Offer.Date" type="datetime" class="form-control" value=@ViewData["Date"]/>
-                <span asp-validation-for="Offer.Date" class="text-danger"></span>
+                <label asp-for="OfferModel.Date" class="control-label"></label>
+                <input asp-for="OfferModel.Date" class="form-control"  />
+                <span asp-validation-for="OfferModel.Date" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Offer.ValidTill" class="control-label"></label>
-                <input asp-for="Offer.ValidTill" type="datetime" class="form-control" value=@ViewData["ValidTill"]/>
-                <span asp-validation-for="Offer.ValidTill" class="text-danger"></span>
+                <label asp-for="OfferModel.ValidTill" class="control-label"></label>
+                <input asp-for="OfferModel.ValidTill" class="form-control" />
+                <span asp-validation-for="OfferModel.ValidTill" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Offer.TransportRFQId" class="control-label"></label>
-                <input asp-for="Offer.TransportRFQId" value=@ViewData["TransportRFQId"] class="form-control" />
+                <label >LoadingAddress</label>
+                <input class="form-control" value="@ViewBag.LoadingAddress" readonly="readonly" />
+                           </div>
+            <div class="form-group">
+                <label >DeliveryAddress</label>
+                <input class="form-control"  value="@ViewBag.DeliveryAddress" readonly="readonly"/>              
             </div>
             <div class="form-group">
-                <label asp-for="Offer.LoadingTime" class="control-label"></label>
-                <input asp-for="Offer.LoadingTime" class="form-control" />
-                <span asp-validation-for="Offer.LoadingTime" class="text-danger"></span>
+                <label asp-for="OfferModel.LoadingTime" class="control-label"></label>
+                <input asp-for="OfferModel.LoadingTime" class="form-control" />
+                <span asp-validation-for="OfferModel.LoadingTime" class="text-danger"></span>
+                <input class="form-control" value="@ViewBag.ShipmentReadyDate" readonly="readonly" />
             </div>
             <div class="form-group">
-                <label asp-for="Offer.DeliveryTime" class="control-label"></label>
-                <input asp-for="Offer.DeliveryTime" class="form-control" />
-                <span asp-validation-for="Offer.DeliveryTime" class="text-danger"></span>
+                <label asp-for="OfferModel.DeliveryTime" class="control-label"></label>
+                <input asp-for="OfferModel.DeliveryTime" class="form-control" />
+                <span asp-validation-for="OfferModel.DeliveryTime" class="text-danger"></span>
+                <input class="form-control" value="@ViewBag.RequestDeliveryDate" readonly="readonly" />
             </div>
             <div class="form-group">
-                <label asp-for="Offer.PriceOffered" class="control-label"></label>
-                <input asp-for="Offer.PriceOffered" class="form-control" />
-                <span asp-validation-for="Offer.PriceOffered" class="text-danger"></span>
+                <label asp-for="OfferModel.PriceOffered" class="control-label"></label>
+                <input asp-for="OfferModel.PriceOffered" class="form-control" />
+                <span asp-validation-for="OfferModel.PriceOffered" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Offer.Currency" class="control-label"></label>
-                <select asp-for="Offer.Currency" asp-items="Html.GetEnumSelectList<TOPMS.Enums.Currency>()" class="form-control">
+                <label asp-for="OfferModel.Currency" class="control-label"></label>
+                <select asp-for="OfferModel.Currency" asp-items="Html.GetEnumSelectList<TOPMS.Enums.Currency>()" class="form-control">
                     <option selected="selected" value="">Please select</option>
                 </select>
-                <span asp-validation-for="Offer.Currency" class="text-danger"></span>
+                <span asp-validation-for="OfferModel.Currency" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Offer.Comments" class="control-label"></label>
-                <input asp-for="Offer.Comments" class="form-control" />
-                <span asp-validation-for="Offer.Comments" class="text-danger"></span>
-            </div>            
+                <label asp-for="OfferModel.Comments" class="control-label"></label>
+                <input asp-for="OfferModel.Comments" class="form-control" />
+                <span asp-validation-for="OfferModel.Comments" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

@@ -16,7 +16,7 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Offer[0].AppUser)
+                    @Html.DisplayNameFor(model => model.Offer[0].AppUser.UserName)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Offer[0].Date)
@@ -25,7 +25,34 @@
                     @Html.DisplayNameFor(model => model.Offer[0].ValidTill)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Offer[0].TransportRFQ)
+                    <span>From</span>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Offer[0].TransportRFQ.From.ZIPCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Offer[0].TransportRFQ.From.City)
+                </th>
+                <th>
+                    <span>To</span>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Offer[0].TransportRFQ.To.ZIPCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Offer[0].TransportRFQ.To.City)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Offer[0].TransportRFQ.NumberOfPackages)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Offer[0].TransportRFQ.Packaging)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Offer[0].TransportRFQ.Weight)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Offer[0].TransportRFQ.Volume)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Offer[0].LoadingTime)
@@ -48,40 +75,67 @@
         <tbody>
             @foreach (var item in Model.Offer)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.AppUser.Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Date)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ValidTill)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TransportRFQ.Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LoadingTime)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DeliveryTime)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PriceOffered)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Currency)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Comments)
-                    </td>
-                    <td>
-                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppUser.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ValidTill)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransportRFQ.From.Country)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransportRFQ.From.ZIPCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransportRFQ.From.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransportRFQ.To.Country)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransportRFQ.To.ZIPCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransportRFQ.To.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransportRFQ.NumberOfPackages)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransportRFQ.Packaging)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransportRFQ.Weight) kg
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransportRFQ.Volume) cmb
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LoadingTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DeliveryTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PriceOffered)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Currency)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comments)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>

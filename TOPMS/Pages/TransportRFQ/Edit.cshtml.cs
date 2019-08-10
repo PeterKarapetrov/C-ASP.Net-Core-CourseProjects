@@ -24,7 +24,7 @@ namespace TOPMS.Pages.TransportRFQ
         [BindProperty]
         public TransportRFQCreateModel TransportRFQ { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(string id)
+        public IActionResult OnGet(string id)
         {
             if (id == null)
             {

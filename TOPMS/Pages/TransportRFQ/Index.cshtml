@@ -118,9 +118,17 @@
                 @Html.DisplayFor(modelItem => item.Status.Name)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                @if (User.IsInRole("Admin") || User.IsInRole("PowerUser") || User.IsInRole("User"))
+                {
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a>;
+
+                }
+                else if (User.IsInRole("Admin"))
+                {
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>;
+                }
                 <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-page="/Offer/Create" asp-route-id="@item.Id">SubmitOffer</a>
             </td>
         </tr>
 }

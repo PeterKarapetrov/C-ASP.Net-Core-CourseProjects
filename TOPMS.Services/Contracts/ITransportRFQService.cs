@@ -5,9 +5,7 @@ namespace TOPMS.Services.Contracts
 {
     public interface ITransportRFQService
     {
-        TransportRFQ CreateNewRFQFromModel(TransportRFQCreateModel TransportRFQ);
-
-        void AddTransportRFQ(TransportRFQ transportRFQ);
+        void AddTransportRFQ(TransportRFQCreateModel TransportRFQ);
 
         TransportRFQ GetTransportRFQ(string id);
         void EditTransportRFQ(TransportRFQCreateModel transportRFQModel, string id);

@@ -57,6 +57,7 @@ namespace TOPMS
             services.AddTransient<ICompanyAreaOfServiceService, CompanyAreaOfServiceService>();
             services.AddTransient<ITransportRFQService, TransportRFQService>();
             services.AddTransient<ISeedService, SeedService>();
+            services.AddTransient<IOfferService, OfferService>();
 
             //services.AddSingleton<IEmailSender, EmailSender>();
         }

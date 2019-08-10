@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
-
 using System.Linq;
 using TOPMS.BindimgModels;
 using TOPMS.Data;
@@ -17,11 +16,6 @@ namespace TOPMS.Services
         public TransportRFQService(TOPMSContext context)
         {
             _context = context;
-        }
-
-        public void AddTransportRFQ(TransportRFQ transportRFQ)
-        {
-            _context.TransportRFQs.Add(transportRFQ);
         }
 
         public TransportRFQCreateModel CreateModelFrom(string id)
@@ -50,7 +44,7 @@ namespace TOPMS.Services
             };
         }
 
-        public TransportRFQ CreateNewRFQFromModel(TransportRFQCreateModel transportRFQModel)
+        public void AddTransportRFQ(TransportRFQCreateModel transportRFQModel)
         {
             var appUser = _context.AppUsers.FirstOrDefault(u => u.UserName == transportRFQModel.UserName);
             var companySupplier = _context.Companies.FirstOrDefault(c => c.Name == transportRFQModel.FromName);
@@ -61,7 +55,7 @@ namespace TOPMS.Services
             var serviceRequired = _context.Services.FirstOrDefault(t => t.Name == transportRFQModel.ServiceRequired);
             var status = _context.Status.FirstOrDefault(t => t.Name == transportRFQModel.Status);
             
-            return new TransportRFQ()
+            var transportRFQ =  new TransportRFQ()
             {
                 AppUser = appUser,
                 Date = transportRFQModel.Date,
@@ -80,6 +74,9 @@ namespace TOPMS.Services
                 SpecialRequirements = transportRFQModel.SpecialRequirements,
                 Packaging = packaging
             };
+
+            _context.TransportRFQs.Add(transportRFQ);
+            _context.SaveChanges();
         }
 
         public void EditTransportRFQ(TransportRFQCreateModel transportRFQModel, string id)
