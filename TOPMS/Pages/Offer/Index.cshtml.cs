@@ -26,7 +26,9 @@ namespace TOPMS.Pages.Offer
                 .Include(o => o.TransportRFQ)
                 .Include(o => o.AppUser)
                 .Include(o => o.TransportRFQ.From)
-                .Include(o => o.TransportRFQ.To).ToListAsync();
+                .Include(o => o.TransportRFQ.To)
+                .Include(o => o.TransportRFQ.Transport)
+                .Include(o => o.TransportRFQ.Service).ToListAsync();
         }
     }
 }

@@ -37,8 +37,10 @@ namespace TOPMS.Pages.Offer
             {
                 return NotFound();
             }
-           ViewData["TransportRFQId"] = new SelectList(_context.TransportRFQs, "Id", "Id");
-           ViewData["UserId"] = new SelectList(_context.AppUsers, "Id", "Id");
+
+            ViewData["TransportRFQId"] = new SelectList(_context.TransportRFQs, "Id", "Id");
+            ViewData["UserId"] = new SelectList(_context.AppUsers, "Id", "Id");
+
             return Page();
         }
 

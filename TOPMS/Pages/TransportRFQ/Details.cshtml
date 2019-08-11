@@ -6,10 +6,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
+<h1>Details TransportRFQ</h1>
 
 <div>
-    <h4>TransportRFQ</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -23,6 +22,54 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.TransportRFQ.Date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransportRFQ.From)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransportRFQ.From.Country)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransportRFQ.From.ZIPCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransportRFQ.From.ZIPCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransportRFQ.From.City)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransportRFQ.From.City)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransportRFQ.From.Address)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransportRFQ.From.Address)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransportRFQ.To)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransportRFQ.To.Country)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransportRFQ.To.ZIPCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransportRFQ.To.ZIPCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransportRFQ.To.City)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransportRFQ.To.City)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransportRFQ.To.Address)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransportRFQ.To.Address)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.TransportRFQ.Material.Name)
@@ -107,6 +154,12 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.TransportRFQ.Insurance.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransportRFQ.Offers)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransportRFQ.Offers.Count)
         </dd>
     </dl>
 </div>

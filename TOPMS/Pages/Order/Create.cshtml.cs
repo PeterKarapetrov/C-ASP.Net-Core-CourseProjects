@@ -20,7 +20,6 @@ namespace TOPMS.Pages.Order
 
         public IActionResult OnGet()
         {
-        ViewData["UserId"] = new SelectList(_context.AppUsers, "Id", "Id");
             return Page();
         }
 

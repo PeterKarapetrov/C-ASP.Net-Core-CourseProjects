@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using TOPMS.Data;
-using TOPMS.Models.BindingModels.Offers;
 using TOPMS.Services.Contracts;
 
 namespace TOPMS.Pages.Offer
@@ -33,18 +29,20 @@ namespace TOPMS.Pages.Offer
         }
 
         [BindProperty]
-        public OfferViewModel OfferModel { get; set; }
+        public Models.Offer Offer { get; set; }
 
-        public IActionResult OnPost(string id)
+        public async Task<IActionResult> OnPost(string id)
         {
-            var userName = User.Identity.Name;
-
+            var creatorUserName = User.Identity.Name;
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            _offerService.AddOffer(OfferModel, id, userName);
+            Offer.TransportRFQId = id;
+            Offer.AppUser = _context.AppUsers.FirstOrDefault(u => u.UserName == creatorUserName);
+            _context.Offers.Add(Offer);
+            await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }

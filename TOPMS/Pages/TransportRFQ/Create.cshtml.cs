@@ -9,6 +9,7 @@ using TOPMS.Services.Contracts;
 
 namespace TOPMS.Pages.TransportRFQ
 {
+    [BindProperties]
     public class CreateModel : PageModel
     {
         private readonly TOPMSContext _context;
@@ -20,30 +21,41 @@ namespace TOPMS.Pages.TransportRFQ
             _transportRFQService = transportRFQService;
         }
 
-        public IActionResult OnGet()
+        public IActionResult OnGetAsync()
         {
-            ViewData["MaterialCode"] = new SelectList(_context.Materials, "MaterialCode", "MaterialCode");
-            ViewData["MaterialName"] = new SelectList(_context.Materials, "Name", "Name");
-            ViewData["ServiceName"] = new SelectList(_context.Services, "Name", "Name");
-            ViewData["StatusName"] = new SelectList(_context.Status, "Name", "Name");
-            ViewData["TransportName"] = new SelectList(_context.Transports, "Name", "Name");
-            ViewData["From"] = new SelectList(_context.Companies.Where(c => c.CompanyType.ToString() == "CompanySupplier"), "Name", "Name");
-            ViewData["To"] = new SelectList(_context.Companies.Where(c => c.CompanyType.ToString() == "CompanyClient"), "Name", "Name");
+            ViewData["Material"] = new SelectList(_context.Materials, "Id", "Name");
+            ViewData["Service"] = new SelectList(_context.Services, "Id", "Name");
+            ViewData["Transport"] = new SelectList(_context.Transports, "Id", "Name");
+            ViewData["From"] = new SelectList(_context.Companies.Where(c => c.CompanyType.ToString() == "CompanySupplier"), "Id", "Name");
+            ViewData["To"] = new SelectList(_context.Companies.Where(c => c.CompanyType.ToString() == "CompanyClient"), "Id", "Name");
 
             return Page();
         }
 
-        [BindProperty]
-        public TransportRFQCreateModel TransportRFQModel { get; set; }
+        public Models.TransportRFQ TransportRFQ { get; set; }
+        public string FromId { get; set; }
+        public string ToId { get; set; }
+        public string MaterialId { get; set; }
+        public string ServiceId { get; set; }
+        public string StatusId { get; set; }
+        public string TransportId { get; set; }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
+           
+            TransportRFQ.MaterialId = MaterialId;
+            TransportRFQ.ServiceId = ServiceId;
+            TransportRFQ.StatusId = _context.Status.FirstOrDefault(s => s.Name == "Submitted").Id;
+            TransportRFQ.TransportId = TransportId;
+            TransportRFQ.FromId = FromId;
+            TransportRFQ.ToId = ToId;
 
-            _transportRFQService.AddTransportRFQ(TransportRFQModel);
+            _context.TransportRFQs.Add(TransportRFQ);
+            await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }

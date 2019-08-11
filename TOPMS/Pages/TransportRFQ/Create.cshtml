@@ -6,107 +6,99 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
+    <h1>Create TransportRFQ</h1>
 
-<h4>TransportRFQ</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="TransportRFQModel.UserName" class="control-label">CreatorUserName</label>
-                <input asp-for="TransportRFQModel.UserName" class="form-control" value="@this.User.Identity.Name" readonly="readonly" />
-                <span asp-validation-for="TransportRFQModel.UserName" class="text-danger"></span>
+                <label asp-for="TransportRFQ.AppUser.UserName" class="control-label">CreatorUserName</label>
+                <input asp-for="TransportRFQ.AppUser.UserName" class="form-control" value="@this.User.Identity.Name" readonly="readonly" />
+                <span asp-validation-for="TransportRFQ.AppUser.UserName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TransportRFQModel.Date" class="control-label"></label>
-                <input asp-for="TransportRFQModel.Date" class="form-control" />
-                <span asp-validation-for="TransportRFQModel.Date" class="text-danger"></span>
+                <label asp-for="TransportRFQ.Date" class="control-label"></label>
+                <input asp-for="TransportRFQ.Date" class="form-control" />
+                <span asp-validation-for="TransportRFQ.Date" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TransportRFQModel.FromName" class="control-label">FromSupplier</label>
-                <select asp-for="TransportRFQModel.FromName" class="form-control" asp-items="ViewBag.From">
+                <label asp-for="TransportRFQ.From" class="control-label">FromSupplier</label>
+                <select asp-for="FromId" class="form-control" asp-items="ViewBag.From">
                     <option selected="selected" value="">Please select...</option>
                 </select>
-                <span asp-validation-for="TransportRFQModel.FromName" class="text-danger"></span>
+                <span asp-validation-for="TransportRFQ.From" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TransportRFQModel.ToName" class="control-label">ToClient</label>
-                <select asp-for="TransportRFQModel.ToName" class="form-control" asp-items="ViewBag.To">
+                <label asp-for="TransportRFQ.To" class="control-label">ToClient</label>
+                <select asp-for="ToId" class="form-control" asp-items="ViewBag.To">
                     <option selected="selected" value="">Please select...</option>
                 </select>
-                <span asp-validation-for="TransportRFQModel.ToName" class="text-danger"></span>
+                <span asp-validation-for="TransportRFQ.To" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TransportRFQModel.MaterialName" class="control-label"></label>
-                <select asp-for="TransportRFQModel.MaterialName" class="form-control" asp-items="ViewBag.MaterialName">
+                <label asp-for="TransportRFQ.Material" class="control-label"></label>
+                <select asp-for="MaterialId" class="form-control" asp-items="ViewBag.Material">
                     <option selected="selected" value="">Please select...</option>
                 </select>
-                <span asp-validation-for="TransportRFQModel.MaterialName" class="text-danger"></span>
+                <span asp-validation-for="TransportRFQ.Material.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TransportRFQModel.Packaging" class="control-label"></label>
-                <select asp-for="TransportRFQModel.Packaging" class="form-control" asp-items="Html.GetEnumSelectList<TOPMS.Enums.Packaging>()">
+                <label asp-for="TransportRFQ.Packaging" class="control-label"></label>
+                <select asp-for="TransportRFQ.Packaging" class="form-control" asp-items="Html.GetEnumSelectList<TOPMS.Enums.Packaging>()">
                     <option selected="selected" value="">Please select...</option>
                 </select>
-                <span asp-validation-for="TransportRFQModel.Packaging" class="text-danger"></span>
+                <span asp-validation-for="TransportRFQ.Packaging" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TransportRFQModel.NumberOfPackages" class="control-label"></label>
-                <input asp-for="TransportRFQModel.NumberOfPackages" class="form-control" />
-                <span asp-validation-for="TransportRFQModel.NumberOfPackages" class="text-danger"></span>
+                <label asp-for="TransportRFQ.NumberOfPackages" class="control-label"></label>
+                <input asp-for="TransportRFQ.NumberOfPackages" class="form-control" />
+                <span asp-validation-for="TransportRFQ.NumberOfPackages" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TransportRFQModel.PackageDimensions" class="control-label"></label>
-                <input asp-for="TransportRFQModel.PackageDimensions" class="form-control" />
-                <span asp-validation-for="TransportRFQModel.PackageDimensions" class="text-danger"></span>
+                <label asp-for="TransportRFQ.PackageDimention" class="control-label"></label>
+                <input asp-for="TransportRFQ.PackageDimention" class="form-control" />
+                <span asp-validation-for="TransportRFQ.PackageDimention" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TransportRFQModel.Volume" class="control-label"></label>
-                <input asp-for="TransportRFQModel.Volume" class="form-control" />
-                <span asp-validation-for="TransportRFQModel.Volume" class="text-danger"></span>
+                <label asp-for="TransportRFQ.Volume" class="control-label"></label>
+                <input asp-for="TransportRFQ.Volume" class="form-control" />
+                <span asp-validation-for="TransportRFQ.Volume" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TransportRFQModel.Weight" class="control-label"></label>
-                <input asp-for="TransportRFQModel.Weight" class="form-control" />
-                <span asp-validation-for="TransportRFQModel.Weight" class="text-danger"></span>
+                <label asp-for="TransportRFQ.Weight" class="control-label"></label>
+                <input asp-for="TransportRFQ.Weight" class="form-control" />
+                <span asp-validation-for="TransportRFQ.Weight" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TransportRFQModel.TransportRequired" class="control-label"></label>
-                <select asp-for="TransportRFQModel.TransportRequired" class="form-control" asp-items="ViewBag.TransportName">
+                <label asp-for="TransportRFQ.Transport" class="control-label"></label>
+                <select asp-for="TransportId" class="form-control" asp-items="ViewBag.Transport">
                     <option selected="selected" value="">Please select...</option>
                 </select>
-                <span asp-validation-for="TransportRFQModel.TransportRequired" class="text-danger"></span>
+                <span asp-validation-for="TransportRFQ.Transport" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TransportRFQModel.ServiceRequired" class="control-label"></label>
-                <select asp-for="TransportRFQModel.ServiceRequired" class="form-control" asp-items="ViewBag.ServiceName">
+                <label asp-for="TransportRFQ.Service" class="control-label"></label>
+                <select asp-for="ServiceId" class="form-control" asp-items="ViewBag.Service">
                     <option selected="selected" value="">Please select...</option>
                 </select>
-                <span asp-validation-for="TransportRFQModel.ServiceRequired" class="text-danger"></span>
+                <span asp-validation-for="TransportRFQ.Service" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TransportRFQModel.ShipmentReadyDate" class="control-label"></label>
-                <input asp-for="TransportRFQModel.ShipmentReadyDate" class="form-control" />
-                <span asp-validation-for="TransportRFQModel.ShipmentReadyDate" class="text-danger"></span>
+                <label asp-for="TransportRFQ.ShipmentReadyDate" class="control-label"></label>
+                <input asp-for="TransportRFQ.ShipmentReadyDate" class="form-control" />
+                <span asp-validation-for="TransportRFQ.ShipmentReadyDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TransportRFQModel.RequestDelieverDate" class="control-label"></label>
-                <input asp-for="TransportRFQModel.RequestDelieverDate" class="form-control" />
-                <span asp-validation-for="TransportRFQModel.RequestDelieverDate" class="text-danger"></span>
+                <label asp-for="TransportRFQ.RequestDeliveryDate" class="control-label"></label>
+                <input asp-for="TransportRFQ.RequestDeliveryDate" class="form-control" />
+                <span asp-validation-for="TransportRFQ.RequestDeliveryDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TransportRFQModel.Status" class="control-label"></label>
-                <select asp-for="TransportRFQModel.Status" class="form-control" asp-items="ViewBag.StatusName">
-                    <option selected="selected" value="">Please select...</option>
-                </select>
-                <span asp-validation-for="TransportRFQModel.Status" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TransportRFQModel.SpecialRequirements" class="control-label"></label>
-                <input asp-for="TransportRFQModel.SpecialRequirements" class="form-control" />
-                <span asp-validation-for="TransportRFQModel.SpecialRequirements" class="text-danger"></span>
+                <label asp-for="TransportRFQ.SpecialRequirements" class="control-label"></label>
+                <input asp-for="TransportRFQ.SpecialRequirements" class="form-control" />
+                <span asp-validation-for="TransportRFQ.SpecialRequirements" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

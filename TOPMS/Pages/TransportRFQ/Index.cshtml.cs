@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using TOPMS.Data;
@@ -29,7 +27,11 @@ namespace TOPMS.Pages.TransportRFQ
                 .Include(t => t.Service)
                 .Include(t => t.Status)
                 .Include(t => t.Transport)
-                .Include(t => t.AppUser).ToListAsync();
+                .Include(t => t.AppUser)
+                .Include(t => t.From)
+                .Include(t => t.To)
+                .Include(t => t.Offers)
+                .OrderByDescending(t => t.Date).ToListAsync();
         }
     }
 }

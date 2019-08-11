@@ -6,7 +6,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>TransportRFQs</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -15,11 +15,25 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.TransportRFQ[0].AppUser.UserName)
-                @Html.Display("NumberOfPacks")
+                @Html.DisplayNameFor(model => model.TransportRFQ[0].Date)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TransportRFQ[0].Date)
+                @Html.DisplayNameFor(model => model.TransportRFQ[0].From)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransportRFQ[0].From.ZIPCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransportRFQ[0].From.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransportRFQ[0].To)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransportRFQ[0].To.ZIPCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransportRFQ[0].To.City)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.TransportRFQ[0].Material.Name)
@@ -55,10 +69,7 @@
                 @Html.DisplayNameFor(model => model.TransportRFQ[0].SpecialRequirements)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TransportRFQ[0].Order)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TransportRFQ[0].Insurance)
+                @Html.DisplayNameFor(model => model.TransportRFQ[0].Offers)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.TransportRFQ[0].Status.Name)
@@ -70,10 +81,25 @@
 @foreach (var item in Model.TransportRFQ) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.AppUser.UserName)
+                @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Date)
+                @Html.DisplayFor(modelItem => item.From.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.From.ZIPCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.From.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.To.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.To.ZIPCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.To.City)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Material.Name)
@@ -88,10 +114,10 @@
                 @Html.DisplayFor(modelItem => item.PackageDimention)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Volume)
+                @Html.DisplayFor(modelItem => item.Volume) cmb
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Weight)
+                @Html.DisplayFor(modelItem => item.Weight) kg
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Transport.Name)
@@ -109,10 +135,7 @@
                 @Html.DisplayFor(modelItem => item.SpecialRequirements)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Order.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Insurance.Id)
+                @Html.DisplayFor(modelItem => item.Offers.Count)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Status.Name)

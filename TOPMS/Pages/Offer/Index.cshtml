@@ -6,18 +6,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
-
-<p>
-     <a asp-page="Create">Create New</a>
-</p>
+<h1>Offers</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Offer[0].AppUser.UserName)
-                </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Offer[0].Date)
                 </th>
@@ -25,7 +18,7 @@
                     @Html.DisplayNameFor(model => model.Offer[0].ValidTill)
                 </th>
                 <th>
-                    <span>From</span>
+                    @Html.DisplayNameFor(model => model.Offer[0].TransportRFQ.From)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Offer[0].TransportRFQ.From.ZIPCode)
@@ -34,13 +27,19 @@
                     @Html.DisplayNameFor(model => model.Offer[0].TransportRFQ.From.City)
                 </th>
                 <th>
-                    <span>To</span>
+                    @Html.DisplayNameFor(model => model.Offer[0].TransportRFQ.To)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Offer[0].TransportRFQ.To.ZIPCode)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Offer[0].TransportRFQ.To.City)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Offer[0].TransportRFQ.Transport)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Offer[0].TransportRFQ.Service)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Offer[0].TransportRFQ.NumberOfPackages)
@@ -77,9 +76,6 @@
             {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.AppUser.UserName)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.Date)
                 </td>
                 <td>
@@ -102,6 +98,12 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.TransportRFQ.To.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransportRFQ.Transport.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransportRFQ.Service.Name)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.TransportRFQ.NumberOfPackages)

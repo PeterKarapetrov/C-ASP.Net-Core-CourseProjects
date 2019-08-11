@@ -12,8 +12,8 @@ namespace TOPMS.Services.Contracts
 
         string GetRequestDeliveryDate(string transportRFQId);
 
-        void AddOffer(OfferViewModel offerModel, string transportRFQId, string userName);
+        //void AddOffer(OfferViewModel offerModel, string transportRFQId, string userName);
 
-        string GetTransportRFQData(string transportRFQId);
+        //string GetTransportRFQData(string transportRFQId);
     }
 }

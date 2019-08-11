@@ -6,17 +6,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
+<h1>Offer Details</h1>
 
 <div>
-    <h4>Offer</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Offer.AppUser)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Offer.AppUser.Id)
+            @Html.DisplayFor(model => model.Offer.AppUser.UserName)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Offer.Date)
@@ -31,10 +30,88 @@
             @Html.DisplayFor(model => model.Offer.ValidTill)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Offer.TransportRFQ)
+            @Html.DisplayNameFor(model => model.Offer.TransportRFQ.From)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Offer.TransportRFQ.Id)
+            @Html.DisplayFor(model => model.Offer.TransportRFQ.From.Country)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Offer.TransportRFQ.From.ZIPCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Offer.TransportRFQ.From.ZIPCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Offer.TransportRFQ.From.City)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Offer.TransportRFQ.From.City)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Offer.TransportRFQ.To)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Offer.TransportRFQ.To.Country)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Offer.TransportRFQ.To.ZIPCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Offer.TransportRFQ.To.ZIPCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Offer.TransportRFQ.To.City)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Offer.TransportRFQ.To.City)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Offer.TransportRFQ.Transport)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Offer.TransportRFQ.Transport.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Offer.TransportRFQ.Service)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Offer.TransportRFQ.Service.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Offer.TransportRFQ.Material)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Offer.TransportRFQ.Material.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Offer.TransportRFQ.NumberOfPackages)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Offer.TransportRFQ.NumberOfPackages)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Offer.TransportRFQ.Packaging)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Offer.TransportRFQ.Packaging)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Offer.TransportRFQ.PackageDimention)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Offer.TransportRFQ.PackageDimention)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Offer.TransportRFQ.Weight)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Offer.TransportRFQ.Weight) kg
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Offer.TransportRFQ.Volume)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Offer.TransportRFQ.Volume) cmb
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Offer.LoadingTime)

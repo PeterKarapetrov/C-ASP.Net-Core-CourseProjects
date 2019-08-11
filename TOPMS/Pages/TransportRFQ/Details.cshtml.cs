@@ -34,7 +34,10 @@ namespace TOPMS.Pages.TransportRFQ
                 .Include(t => t.Service)
                 .Include(t => t.Status)
                 .Include(t => t.Transport)
-                .Include(t => t.AppUser).FirstOrDefaultAsync(m => m.Id == id);
+                .Include(t => t.Offers)
+                .Include(t => t.AppUser)
+                .Include(t => t.From)
+                .Include(t => t.To).FirstOrDefaultAsync(m => m.Id == id);
 
             if (TransportRFQ == null)
             {
